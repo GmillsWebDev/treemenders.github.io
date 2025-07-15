@@ -2,7 +2,7 @@
     import "../styles/app.css";
 
     export let heading;
-    export let bannerImg = "$lib/images/images/banner_1.webp";
+    let bannerImg = "$lib/images/images/banner_1.webp";
 
     // $: bgimg = `background-image: url("${bannerImg}");`;
 </script>

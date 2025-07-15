@@ -32,6 +32,7 @@
 					href={link.href}
 					on:click={() => {
 						menuOpen = false;
+						currentPath = link.href;
 					}}
 				>
 					{link.name}
