@@ -60,7 +60,7 @@
 
 <style>
 	.navbar {
-		padding: 1rem;
+		padding: 1rem 0;
 		background-color: var(--colour-white);
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		width: 100vw;

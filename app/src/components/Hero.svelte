@@ -10,6 +10,7 @@
 	<div class="heroContent">
 		<h1>{heading}</h1>
         <p>{content}</p>
+		<slot name="button"></slot>
 	</div>
 </div>
 
@@ -22,6 +23,7 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		padding: 1rem;
 	}
 
 	.heroBanner::before {

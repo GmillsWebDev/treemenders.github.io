@@ -8,6 +8,7 @@ body {
 }
 
 .bodyContainer{
+	max-width: 1600px;
 	width: calc(100% - 4rem);
 }
 
