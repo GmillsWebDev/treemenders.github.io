@@ -1,0 +1,12 @@
+@import "base.css";
+
+
+body {
+	min-height: 100vh;
+	max-width: 100%;
+	margin: 0;
+}
+
+.bodyContainer{
+	width: calc(100% - 4rem);
+}
