@@ -5,6 +5,7 @@ body {
 	min-height: 100vh;
 	max-width: 100%;
 	margin: 0;
+	font-family: var(--font-body);
 }
 
 .bodyContainer{
@@ -12,25 +13,24 @@ body {
 	width: calc(100% - 4rem);
 }
 
-h1{
-	font-size: 2.5rem;
+h1, h2, h3, h4 {
+	font-family: var(--font-heading);
 	font-weight: 600;
 	margin: 0;
+	margin-bottom: 1rem;
+}
+
+h1{
+	font-size: 2.5rem;
 }
 
 h2{
 	font-size: 2rem;
-	font-weight: 600;
-	margin: 0;
 }
 
 h3{
 	font-size: 1.5rem;
-	font-weight: 600;
-	margin: 0;
 }
 h4{
 	font-size: 1.25rem;
-	font-weight: 600;
-	margin: 0;
 }

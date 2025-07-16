@@ -1,4 +1,5 @@
 :root{
+    /* Colours */
     --colour-primary:#42356C;
     --colour-secondary:#766886;
     --colour-accent:#E4DEDC;
@@ -10,4 +11,15 @@
     --colour-grey:#ccc;
     --colour-light-grey:#e0e0e0;
     --colour-dark-grey:#8d8d8d;
+
+    /* Fonts */
+    --font-heading:"Cinzel", serif;
+    --font-accent:"Tinos", serif;
+    --font-body:"Reddit Sans", sans-serif;
+
+    /* Viewports */
+    --viewport-small:"320px";
+    --viewport-medium:"768px";
+    --viewport-large:"1024px";
+    --viewport-xlarge:"1280px";
 }

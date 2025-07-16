@@ -2,6 +2,7 @@
     import Hero from "../components/Hero.svelte";
     import bannerImg from "$lib/images/images/banner_1.webp";
     import Button from "../components/Button.svelte";
+    import AboutIntro from "../components/AboutIntro.svelte";
 </script>
 
 
@@ -12,6 +13,8 @@
 >
     <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/about" />
 </Hero>
+
+<AboutIntro />
 
 <style>
 

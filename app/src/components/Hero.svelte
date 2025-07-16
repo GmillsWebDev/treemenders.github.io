@@ -58,5 +58,7 @@
 
     .heroContent p{
         font-size: 1.8rem;
-    }
+		font-family: var(--font-heading);
+		font-weight: 500;
+    }	
 </style>
