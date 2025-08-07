@@ -1,5 +1,5 @@
 <script>
-	import '../styles/app.css';
+	
 
 	export let heading;
 	export let bannerBg;
@@ -24,6 +24,7 @@
 		justify-content: center;
 		position: relative;
 		padding: 1rem;
+		margin-bottom: 2rem;
 	}
 
 	.heroBanner::before {
@@ -54,6 +55,7 @@
 		-webkit-backdrop-filter: blur(2.3px);
 		border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 1rem 2rem;
+		max-width: 37rem;
 	}
 
     .heroContent p{

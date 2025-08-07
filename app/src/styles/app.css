@@ -4,20 +4,32 @@
 body {
 	min-height: 100vh;
 	max-width: 100%;
-	margin: 0;
 	font-family: var(--font-body);
+	margin:0;
 }
 
-.bodyContainer{
+.container{
 	max-width: 1600px;
 	width: calc(100% - 4rem);
+	margin: 0 auto;
+}
+
+.container-full{
+	max-width: 100%;
+	width: 100%;
+}
+
+.lead{
+	font-size: 1.25rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
 }
 
 h1, h2, h3, h4 {
 	font-family: var(--font-heading);
 	font-weight: 600;
 	margin: 0;
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 }
 
 h1{

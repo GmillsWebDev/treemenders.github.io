@@ -1,5 +1,4 @@
 <script>
-	import '../styles/app.css';
 	import { onMount } from 'svelte';
     import logo from '$lib/images/branding/logo_sml.webp';
 	let menuOpen = false;
@@ -23,7 +22,7 @@
 </script>
 
 <nav class="navbar">
-	<div class="navbarContainer bodyContainer">
+	<div class="navbarContainer container">
 		<div class="navbar__logo"><img src="{logo}" alt="Treemenders logo"></div>
 		<div class="navbar__links {menuOpen ? 'active' : ''}">
 			{#each links as link}

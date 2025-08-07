@@ -24,7 +24,6 @@
         width: 75rem;
         height: 100%;
         margin: auto;
-        margin-top: 2rem;
         margin-bottom: 6rem;
         display: flex;
         align-items: start;
