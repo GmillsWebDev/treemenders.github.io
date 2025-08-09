@@ -36,6 +36,12 @@ export const trees = [
         alt: "Tree Removal"
     },
     {
+        title: "Tree Planting",
+        description: "Expert tree planting for gardens and landscapes. We select, position, and plant trees that thrive—adding beauty, shade, and biodiversity to your outdoor space.",
+        image: 'src/lib/images/images/chainsaw2.webp',
+        alt: "Tree Removal"
+    },
+    {
         title: "Deadwood Removal",
         description: "Eliminating hazardous or decaying branches.",
         image: 'src/lib/images/images/chainsaw2.webp',
@@ -65,6 +71,12 @@ export const gardens = [
     {
         title: "Stump Grinding and removal",
         description: "Eliminating stumps below ground level for replanting or landscaping.",
+        image: 'src/lib/images/images/chainsaw2.webp',
+        alt: "Tree Removal"
+    },
+    {
+        title: "Fencing",
+        description: "Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and curb appeal.",
         image: 'src/lib/images/images/chainsaw2.webp',
         alt: "Tree Removal"
     },
