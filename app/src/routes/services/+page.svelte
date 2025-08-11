@@ -2,6 +2,7 @@
     import Hero from "../../components/Hero.svelte";
     import bannerImg from "$lib/images/images/banner_1.webp";
     import Card from "../../components/Card.svelte";
+    import Button from "../../components/Button.svelte";
     import { trees, gardens, specialist } from "$lib/scripts/services.js";
 
     let selection = 'trees';
@@ -50,7 +51,13 @@
             cardAlt={service.alt}
             cardHeading={service.title}
             cardDescription={service.description}
-        />
+        >
+            <Button slot="button"
+            content="Learn More"
+            variant="secondary"
+            linkUrl={`/services/${service.slug.toLowerCase().replace(/\s+/g, '-')}`}
+            />
+        </Card>
     {/each}
     </div>
     </div>
@@ -62,6 +69,7 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 2rem;
     }
+
 
     .tabsRow {
         display: flex;

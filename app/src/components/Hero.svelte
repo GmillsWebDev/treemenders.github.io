@@ -24,7 +24,7 @@
 		justify-content: center;
 		position: relative;
 		padding: 1rem;
-		margin-bottom: 2rem;
+		margin-bottom: 4rem;
 	}
 
 	.heroBanner::before {

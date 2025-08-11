@@ -14,6 +14,7 @@
         <p class="description">{cardDescription}</p>
         <slot name="button"></slot>
     </div>
+    
 </div>
 
 <style>
@@ -33,13 +34,7 @@
     .image{
         position: relative;
         overflow: hidden;
-
-        img {
-        width: 100%;
-        height: auto;
-    }
-
-    h3{
+        h3{
         color: var(--colour-primary);
         position: absolute;
         bottom: 0;

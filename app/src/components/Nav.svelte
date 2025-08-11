@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-    import logo from '$lib/images/branding/logo_sml.webp';
+    import logo from '$lib/images/branding/logo_med.webp';
 	let menuOpen = false;
 	let currentPath = '/';
 
@@ -78,6 +78,10 @@
 		font-size: 1.5rem;
 		font-weight: bold;
 		color: var(--colour-primary);
+		img{
+			width: 6rem;
+			height: auto;
+		}
 	}
 
 	.navbar__links {

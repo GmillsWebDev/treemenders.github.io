@@ -8,10 +8,15 @@ body {
 	margin:0;
 }
 
+img{
+	width: 100%;
+	height: auto;
+}
+
 .container{
 	max-width: 1600px;
 	width: calc(100% - 4rem);
-	margin: 0 auto;
+	margin: 4rem auto;
 }
 
 .container-full{
