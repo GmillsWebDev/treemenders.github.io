@@ -14,6 +14,7 @@
         text-decoration: none;
         color: white;
         transition: background-color 0.3s ease, color 0.3s ease;
+        width: fit-content;
     }
 
     .btn.primary {
@@ -37,5 +38,13 @@
         background-color: var(--colour-secondary);
         color: var(--colour-black);
         border: 1px solid var(--colour-secondary);
+    }
+
+    @media screen and (max-width: 450px) {
+        .btn {
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+        }
     }
 </style>

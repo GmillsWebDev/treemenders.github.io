@@ -6,7 +6,9 @@
     import { trees, gardens, specialist } from "$lib/scripts/services.js";
 
     let selection = 'trees';
-    
+
+    // Combine all services for "All" tab
+    const allServices = [...trees, ...gardens, ...specialist];
 </script>
 
 
@@ -21,7 +23,8 @@
         {#each [
             { key: 'trees', icon: 'fa-solid fa-tree', label: 'Tree Care' },
             { key: 'gardens', icon: 'fa-brands fa-pagelines', label: 'Garden Care' },
-            { key: 'specialist', icon: 'fa-solid fa-star', label: 'Specialist Services' }
+            { key: 'specialist', icon: 'fa-solid fa-star', label: 'Specialist Services' },
+            { key: 'all', icon: 'fa-solid fa-layer-group', label: 'All' }
             ] as tab}
             <button
                 class:selected={selection === tab.key}
@@ -41,11 +44,17 @@
             >
                 <p><i class={tab.icon}></i> {tab.label}</p>
             </button>
-            {/each}
+        {/each}
     </div>
     <div>
         <div class="serviceContainer">
-        {#each selection === 'trees' ? trees : selection === 'gardens' ? gardens : specialist as service}
+        {#each selection === 'all'
+            ? allServices
+            : selection === 'trees'
+                ? trees
+                : selection === 'gardens'
+                    ? gardens
+                    : specialist as service}
         <Card
             cardImg={service.image}
             cardAlt={service.alt}

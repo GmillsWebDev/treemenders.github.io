@@ -43,7 +43,7 @@
         <div class="why">
             <h3>Why We Do It</h3>
             <ul>
-                {#each service.why as item}
+                {#each service.pageContent.why as item}
                     <li>{@html item.content}</li>
                 {/each}
             </ul>
@@ -61,21 +61,57 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
-        align-items: center;
+        .image{
+            justify-content: top;
+        }
+        .content{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     .whatWhy {
         display: flex;
         justify-content: space-around;
         margin-top: 2rem;
+        &>div{
+            flex: 1;
+            margin: 0 1rem;
+            padding: 1rem 2rem;
+        }
 
         .what{
-            padding: 1rem;
             background: var(--colour-light-grey);
         }
         .why{
-            padding: 1rem;
             border: 1px solid var(--colour-primary);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .introContainer {
+            grid-template-columns: 1fr;
+            .image{
+                order: 1;
+            }
+            .content{
+                order: 0;
+            }
+        }
+        .whatWhy {
+            flex-direction: column;
+            &>div {
+                margin: 1rem 0;
+            }
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .whatWhy {
+            &>div {
+                padding: 1rem;
+            }
         }
     }
 </style>
