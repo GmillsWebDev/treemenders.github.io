@@ -3,6 +3,7 @@
     import bannerImg from "$lib/images/images/banner_1.webp";
     import Card from "../../components/Card.svelte";
     import Button from "../../components/Button.svelte";
+    import CtaBanner from "../../components/CtaBanner.svelte";
     import { trees, gardens, specialist } from "$lib/scripts/services.js";
 
     let selection = 'trees';
@@ -71,6 +72,7 @@
     </div>
     </div>
 </div>
+<CtaBanner />
 
 <style>
     .serviceContainer{

@@ -1,4 +1,5 @@
 <script>
+	import Button from './Button.svelte';
 	import { onMount } from 'svelte';
     import logo from '$lib/images/branding/logo_med.webp';
 	let menuOpen = false;
@@ -11,7 +12,7 @@
 
 	const links = [
 		{ name: 'Home', href: '/' },
-		{ name: 'About', href: '/about' },
+		// { name: 'About', href: '/about' },
 		{ name: 'Services', href: '/services' },
 		{ name: 'Contact', href: '/contact' }
 	];
@@ -37,6 +38,7 @@
 					{link.name}
 				</a>
 			{/each}
+			<Button variant="primary" content="Get a quote" linkUrl="/contact" />
 		</div>
 		<div
 			class="hamburger"
@@ -86,6 +88,7 @@
 
 	.navbar__links {
 		display: flex;
+		align-items: center;
 		gap: 1.5rem;
 	}
 

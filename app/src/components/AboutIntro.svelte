@@ -68,22 +68,80 @@
     }
 
     @media screen and (max-width: 1028px){
-        .container{
-            width: calc(100% - 2rem);
-        }
         .img{
-            width: 60%;
+            width: 50%;
         }
         .content {
-            right: 2rem;
+            right: 5rem;
         }
 
     }
-    /* 
-     @media screen and (max-width: 768px){
-        .content p{
-            color: green;
+
+    @media screen and (max-width:900px){
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
 
+        .img, .content{
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+            
+        }
+
+        .img{
+            left: 0;
+        }
+
+        .content{
+            position: relative;
+            /* top: 0;
+            /* right: 4rem; */
+        
+        }
+    }
+
+    /* at 768 clear all formatting and positioning */
+    /* So that image appears below the content panel */
+    @media screen and (max-width: 768px) {
+        .container {
+            grid-template-columns: 1fr;
+            align-items: center;
+            width: calc(100% - 2rem);
+            padding: 1rem 0;
+        }
+        .img {
+            width: 100%;
+            margin-bottom: 2rem;
+            order: 2;
+            z-index: 1;
+            padding: 0;
+        }
+        .content {
+            width: auto;
+            right: 0;
+            top: 0;
+            order: 1;
+            z-index: 2;
+            margin-bottom: 2rem;
+        }
+    }
+
+    /* @media screen and (max-width: 650px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .img {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .content {
+            width: 100%;
+            right: 0;
+            top: 0;
+        }
     } */
 </style>

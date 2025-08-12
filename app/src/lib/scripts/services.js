@@ -709,30 +709,218 @@ export const gardens = [
 export const specialist = [
 	{
 		title: 'Emergency Tree Work',
-		slug: 'emergency-tree-work',
-		description: 'Rapid response for storm damage or hazardous trees.',
-		image: '/src/lib/images/images/chainsaw2.webp',
-		alt: 'Tree Removal'
+    slug: 'emergency-tree-work',
+    description: 'Rapid response for storm damage or hazardous trees.',
+    image: '/src/lib/images/images/chainsaw2.webp',
+    alt: 'Tree Removal',
+    pageContent: {
+        bannerTitle: 'Emergency Tree Work & Storm Recovery',
+        bannerTag: 'Fast, professional response when tree hazards strike.',
+        longDesc: `<p>When a tree becomes a sudden danger—whether it’s storm damage, a cracked limb hanging over your driveway, or a fallen trunk blocking access—you need help fast. Our emergency tree service is designed for exactly that: quick, safe, and professional response when time matters most.</p>
+        <p>We’re equipped to handle urgent situations with care and efficiency, assessing the risk and taking action to protect your property and loved ones. From securing unstable trees to clearing debris after high winds, we’ll restore safety and order without adding stress.</p>
+        <p>If you’re unsure whether a tree poses a risk, give us a call. We’d rather check and reassure you than see a problem escalate. Your peace of mind is our priority.</p>`,
+        what: [
+            {
+                id: 1,
+                content: "24/7 emergency call-out and risk assessment"
+            },
+            {
+                id: 2,
+                content: "Stabilisation of unstable limbs"
+            },
+            {
+                id: 3,
+                content: "Safe dismantling or removal of hazardous sections"
+            },
+            {
+                id: 4,
+                content: "Debris clearance and site cleanup"
+            },
+            {
+                id: 5,
+                content: "Follow-up safety inspection"
+            }
+        ],
+        why: [
+            {
+                id: 1,
+                content: "Rapid removal of dangerous branches or fallen trees"
+            },
+            {
+                id: 2,
+                content: "Minimises further property damage"
+            },
+            {
+                id: 3,
+                content: "Restores safe access to driveways and paths"
+            },
+            {
+                id: 4,
+                content: "Provides peace of mind in stressful situations"
+            }
+        ]
+    }
 	},
 	{
 		title: 'Tree Surveys',
-		slug: 'tree-surveys',
-		description: 'Arboricultural assessments for planning applications or safety checks.',
-		image: '/src/lib/images/images/chainsaw2.webp',
-		alt: 'Tree Removal'
+    slug: 'tree-surveys',
+    description: 'Arboricultural assessments for planning applications or safety checks.',
+    image: '/src/lib/images/images/chainsaw2.webp',
+    alt: 'Tree Removal',
+    pageContent: {
+        bannerTitle: 'Professional Tree Surveys & Reports',
+        bannerTag: 'Insightful assessments to guide your tree decisions.',
+        longDesc: `<p>Whether you're planning a garden redesign, buying a new property, or dealing with a protected tree, a professional tree survey can give you the clarity you need. Our detailed reports assess tree health, structural integrity, and any potential risks—helping you make informed decisions with confidence.</p>
+        <p>We offer surveys for homeowners, developers, and local authorities, tailored to your specific needs. Whether it’s a safety check, a planning application, or a mortgage requirement, we’ll provide clear, jargon-free documentation that ticks all the right boxes.</p>
+        <p>Our team combines arboricultural expertise with a practical understanding of what clients actually need—no fluff, just honest, reliable insight.</p>`,
+        what: [
+            {
+                id: 1,
+                content: "On-site health and risk inspection"
+            },
+            {
+                id: 2,
+                content: "Structural stability evaluation"
+            },
+            {
+                id: 3,
+                content: "Detailed written report with photos"
+            },
+            {
+                id: 4,
+                content: "Recommendations for next steps"
+            },
+            {
+                id: 5,
+                content: "Follow-up consultation if required"
+            }
+        ],
+        why: [
+            {
+                id: 1,
+                content: "Clear data for planning permission or insurance"
+            },
+            {
+                id: 2,
+                content: "Early detection of health or safety issues"
+            },
+            {
+                id: 3,
+                content: "Expert recommendations for care and maintenance"
+            },
+            {
+                id: 4,
+                content: "Jargon-free reports you can trust"
+            }
+        ]
+    }
 	},
 	{
 		title: 'Site Clearance',
-		slug: 'site-clearance',
-		description: 'Preparing land for construction or landscaping.',
-		image: '/src/lib/images/images/chainsaw2.webp',
-		alt: 'Tree Removal'
+    slug: 'site-clearance',
+    description: 'Preparing land for construction or landscaping.',
+    image: '/src/lib/images/images/chainsaw2.webp',
+    alt: 'Tree Removal',
+    pageContent: {
+        bannerTitle: 'Site Clearance for Development & Construction',
+        bannerTag: 'Prepare your land for success with comprehensive clearance.',
+        longDesc: `<p>Preparing a site for development takes more than just removing a few trees—it requires careful planning, efficient execution, and a clear understanding of the land. Our site clearance service is designed for developers, contractors, and landowners who need a clean, safe starting point for construction or landscaping projects.</p>
+        <p>We handle everything from tree and vegetation removal to stump grinding and debris clearance, always working to your schedule and site requirements. Whether it’s a small plot or a larger commercial space, we’ll ensure the area is cleared responsibly and ready for the next phase.</p>
+        <p>Our team is experienced in working alongside other trades, managing access, and meeting environmental considerations. We’re here to make your project run smoother from day one.</p>`,
+        what: [
+            {
+                id: 1,
+                content: "Site survey and vegetation assessment"
+            },
+            {
+                id: 2,
+                content: "Controlled tree and stump removal"
+            },
+            {
+                id: 3,
+                content: "Debris sorting, recycling, and disposal"
+            },
+            {
+                id: 4,
+                content: "Coordination with other contractors"
+            },
+            {
+                id: 5,
+                content: "Final safety and site-readiness check"
+            }
+        ],
+        why: [
+            {
+                id: 1,
+                content: "Streamlines construction workflows"
+            },
+            {
+                id: 2,
+                content: "Ensures compliance with health & safety"
+            },
+            {
+                id: 3,
+                content: "Clears all trees, stumps, and vegetation"
+            },
+            {
+                id: 4,
+                content: "Reduces project delays and unforeseen costs"
+            }
+        ]
+    }
 	},
 	{
 		title: 'Commercial Grounds Maintenance',
-		slug: 'commercial-grounds-maintenance',
-		description: 'Ongoing care for business parks, schools, estates, etc.',
-		image: '/src/lib/images/images/chainsaw2.webp',
-		alt: 'Tree Removal'
+    slug: 'commercial-grounds-maintenance',
+    description: 'Ongoing care for business parks, schools, estates, etc.',
+    image: '/src/lib/images/images/chainsaw2.webp',
+    alt: 'Tree Removal',
+    pageContent: {
+        bannerTitle: 'Commercial Grounds Maintenance & Care',
+        bannerTag: 'Keeping your business grounds polished and inviting year-round.',
+        longDesc: `<p>First impressions matter—and a well-maintained outdoor space can make all the difference for your business or property. Our commercial grounds maintenance service keeps your green areas looking professional, tidy, and inviting all year round.</p>
+        <p>We offer tailored maintenance plans for schools, business parks, estates, and other commercial sites, covering everything from regular hedge trimming and lawn care to tree inspections and seasonal clean-ups. Whether you need weekly visits or occasional support, we’ll work around your schedule to keep things running smoothly.</p>
+        <p>Our team is reliable, discreet, and committed to high standards—so your grounds reflect the quality of what happens inside.</p>`,
+        what: [
+            {
+                id: 1,
+                content: "Regular scheduled site visits"
+            },
+            {
+                id: 2,
+                content: "Hedge, lawn, shrub, and tree maintenance"
+            },
+            {
+                id: 3,
+                content: "Seasonal clean-ups and plant health checks"
+            },
+            {
+                id: 4,
+                content: "Detailed reporting and feedback loops"
+            },
+            {
+                id: 5,
+                content: "Flexible adjustments to your plan"
+            }
+        ],
+        why: [
+            {
+                id: 1,
+                content: "Enhances professional image of your property"
+            },
+            {
+                id: 2,
+                content: "Ensures consistent, reliable upkeep"
+            },
+            {
+                id: 3,
+                content: "Reduces long-term maintenance costs"
+            },
+            {
+                id: 4,
+                content: "Custom plans to suit your schedule"
+            }
+        ]
+    }
 	}
 ];
