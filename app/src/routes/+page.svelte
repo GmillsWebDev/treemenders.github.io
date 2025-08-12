@@ -4,6 +4,7 @@
     import Button from "../components/Button.svelte";
     import AboutIntro from "../components/AboutIntro.svelte";
     import Card from "../components/Card.svelte";
+    import Review from "../components/Review.svelte";
     import CtaBanner from "../components/CtaBanner.svelte";
 </script>
 
@@ -42,33 +43,57 @@
     </div>
 </div>
 
-<div class="container-full">
-    <div class="container">
+
+    <div class="container services">
         <h2>Services</h2>
+        <div class="service-cards">
+        <Card
+            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardAlt="Tree Felling"
+            cardHeading="Tree Felling"
+            cardDescription="Safe and efficient removal of trees, including those in confined spaces."
+        >
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling" />
+        </Card>
+        <Card
+            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardAlt="Tree Care Service"
+            cardHeading="Site Clearance"
+            cardDescription="Preparing land for construction or landscaping."
+        >
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance" /></Card>
+        <Card
+            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardAlt="Tree Care Service"
+            cardHeading="Hedge trimming and shaping"
+            cardDescription="Regular maintenance and decorative shaping."
+        ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping" /></Card>
+        <Card
+            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardAlt="Tree Care Service"
+            cardHeading="Tree Surveys"
+            cardDescription="Arboricultural assessments for planning applications or safety checks."
+        >
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-surveys" /></Card>
     </div>
 
-    <div class="service-cards">
-        <Card
-            title="Tree Surgery"
-            description="Expert tree surgery services to maintain the health and appearance of your trees."
-            imageSrc="/src/lib/images/images/service_tree_surgery.webp"
-            linkUrl="/services/tree-surgery"
-        />
-        <Card
-            title="Stump Grinding"
-            description="Efficient stump grinding services to remove unsightly tree stumps from your property."
-            imageSrc="/src/lib/images/images/service_stump_grinding.webp"
-            linkUrl="/services/stump-grinding"
-        />
-        <Card
-            title="Hedge Trimming"
-            description="Professional hedge trimming services to keep your hedges neat and tidy."
-            imageSrc="/src/lib/images/images/service_hedge_trimming.webp"
-            linkUrl="/services/hedge-trimming"
+
+    <div class="btnContainer"><Button variant="primary" content="All Services" linkUrl="/services" /></div>
+
+    </div>
+    
+
+
+<div class="container-full">
+    <div class="container">
+        <Review
+            reviewText={`<p>I had a large tree in my back garden that had started leaning a bit too close to the house, and I wasn’t sure what to do. I found Treemenders online and gave them a call—Jake came out to take a look and was really friendly and professional. He explained everything clearly and didn’t push me into anything, which I appreciated.
+</p>
+        <p>The team came a few days later and did a brilliant job removing the tree safely and tidying up afterwards. You wouldn’t even know they’d been, except the garden looks so much better now!
+</p>`}
         />
     </div>
 </div>
-
 <CtaBanner />
 <style>
 
@@ -120,6 +145,26 @@ background: linear-gradient(90deg,rgba(66, 53, 108, 1) 0%, rgba(66, 53, 108, 1) 
             color: var(--colour-white);
         }
     }   
+
+    .services{
+        margin-bottom: 4rem;
+        display: flex;
+        flex-direction: column;
+        
+        .service-cards {
+            display:flex;
+            justify-content: space-around;
+            flex-direction: row;
+            gap: 2rem;
+            margin-bottom: 2rem;
+    }  
+        .btnContainer {
+                display: flex;
+                justify-content: center;
+                margin-top: 2rem;
+            }    
+        
+    }
 
     @media screen and (max-width: 650px) {
         .threePanels {

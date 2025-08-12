@@ -75,7 +75,7 @@
             .copy {
                 text-align: right;
                 margin-top: 1rem;
-                position: absolute;
+                position: relative;
                 bottom: 0;
                 right: 0;
                 font-size: 0.8rem;
