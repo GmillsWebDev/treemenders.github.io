@@ -1,9 +1,11 @@
+import defaultImg from '$lib/images/images/chainsaw2.webp';
+
 export const trees = [
 	{
 		title: 'Tree Felling',
 		slug: 'tree-felling',
 		description: 'Safe and efficient removal of trees, including those in confined spaces.',
-		image: '/src/lib/images/images/chainsaw2.webp',
+		image: defaultImg,
 		alt: 'Tree Removal',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
@@ -56,7 +58,7 @@ export const trees = [
 		title: 'Pollarding',
 		slug: 'pollarding',
 		description: 'Controlling tree size and shape for health and aesthetics.',
-		image: '/src/lib/images/images/chainsaw2.webp',
+		image: defaultImg,
 		alt: 'Tree Removal',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
@@ -110,7 +112,7 @@ export const trees = [
 		title: 'Crown Reduction',
 		slug: 'crown-reduction',
 		description: 'Reducing the height and spread of the tree canopy.',
-		image: '/src/lib/images/images/chainsaw2.webp',
+		image: defaultImg,
 		alt: 'Tree Removal',
 		pageContent: {
 			bannerTitle: 'Crown Reduction & Canopy Management',
@@ -164,7 +166,7 @@ export const trees = [
 		title: "Crown Thinning",
     slug: "crown-thinning",
     description: "Removing select branches to improve light penetration and airflow.",
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: "Tree Removal",
     pageContent: {
         bannerTitle: "Crown Thinning for Light & Airflow",
@@ -219,7 +221,7 @@ export const trees = [
 		title: "Crown Lifting",
     slug: "crown-lifting",
     description: "Raising the lower branches for clearance and visibility.",
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: "Tree Removal",
     pageContent: {
         bannerTitle: "Crown Lifting & Clearance",
@@ -273,7 +275,7 @@ export const trees = [
 		title: "Tree Pruning & Shaping",
     slug: "tree-pruning-shaping",
     description: "Enhancing tree structure and appearance.",
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: "Tree Removal",
     pageContent: {
         bannerTitle: "Tree Pruning & Artful Shaping",
@@ -327,7 +329,7 @@ export const trees = [
 		title: 'Tree Planting',
     slug: 'tree-planting',
     description: 'Expert tree planting for gardens and landscapes. We select, position, and plant trees that thrive—adding beauty, shade, and biodiversity to your outdoor space.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Tree Planting & Landscape Enhancement',
@@ -381,7 +383,7 @@ export const trees = [
 		title: 'Deadwood Removal',
     slug: 'deadwood-removal',
     description: 'Eliminating hazardous or decaying branches.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Deadwood Removal for Tree Safety',
@@ -438,7 +440,7 @@ export const gardens = [
 		title: 'Hedge trimming and shaping',
     slug: 'hedge-trimming-shaping',
     description: 'Regular maintenance and decorative shaping.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Hedge Trimming & Artistic Shaping',
@@ -492,7 +494,7 @@ export const gardens = [
 		title: 'Shrub & Topiary care',
     slug: 'shrub-topiary-care',
     description: 'Precision trimming for ornamental plants.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Shrub & Topiary Care',
@@ -546,7 +548,7 @@ export const gardens = [
 		title: 'Garden Clearance',
     slug: 'garden-clearance',
     description: 'Removing overgrowth, debris, and unwanted vegetation.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Garden Clearance & Fresh Starts',
@@ -600,7 +602,7 @@ export const gardens = [
 		title: 'Stump Grinding and removal',
     slug: 'stump-grinding-removal',
     description: 'Eliminating stumps below ground level for replanting or landscaping.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Stump Grinding & Removal',
@@ -654,7 +656,7 @@ export const gardens = [
 		title: 'Fencing',
     slug: 'fencing',
     description: 'Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and curb appeal.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Garden Fencing & Boundary Solutions',
@@ -711,7 +713,7 @@ export const specialist = [
 		title: 'Emergency Tree Work',
     slug: 'emergency-tree-work',
     description: 'Rapid response for storm damage or hazardous trees.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Emergency Tree Work & Storm Recovery',
@@ -765,7 +767,7 @@ export const specialist = [
 		title: 'Tree Surveys',
     slug: 'tree-surveys',
     description: 'Arboricultural assessments for planning applications or safety checks.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Professional Tree Surveys & Reports',
@@ -819,7 +821,7 @@ export const specialist = [
 		title: 'Site Clearance',
     slug: 'site-clearance',
     description: 'Preparing land for construction or landscaping.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Site Clearance for Development & Construction',
@@ -873,7 +875,7 @@ export const specialist = [
 		title: 'Commercial Grounds Maintenance',
     slug: 'commercial-grounds-maintenance',
     description: 'Ongoing care for business parks, schools, estates, etc.',
-    image: '/src/lib/images/images/chainsaw2.webp',
+    image: defaultImg,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Commercial Grounds Maintenance & Care',

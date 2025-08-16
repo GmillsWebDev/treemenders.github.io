@@ -6,6 +6,8 @@
     import Card from "../components/Card.svelte";
     import Review from "../components/Review.svelte";
     import CtaBanner from "../components/CtaBanner.svelte";
+
+    import defaultImg from "$lib/images/images/chainsaw2.webp";
 </script>
 
 
@@ -48,7 +50,7 @@
         <h2>Services</h2>
         <div class="service-cards">
         <Card
-            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardImg={defaultImg}
             cardAlt="Tree Felling"
             cardHeading="Tree Felling"
             cardDescription="Safe and efficient removal of trees, including those in confined spaces."
@@ -56,20 +58,20 @@
             <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling" />
         </Card>
         <Card
-            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardImg={defaultImg}
             cardAlt="Tree Care Service"
             cardHeading="Site Clearance"
             cardDescription="Preparing land for construction or landscaping."
         >
             <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance" /></Card>
         <Card
-            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardImg={defaultImg}
             cardAlt="Tree Care Service"
             cardHeading="Hedge trimming and shaping"
             cardDescription="Regular maintenance and decorative shaping."
         ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping" /></Card>
         <Card
-            cardImg="/src/lib/images/images/chainsaw2.webp"
+            cardImg={defaultImg}
             cardAlt="Tree Care Service"
             cardHeading="Tree Surveys"
             cardDescription="Arboricultural assessments for planning applications or safety checks."
