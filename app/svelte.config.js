@@ -10,7 +10,7 @@ export default {
 			strict: true
 		}),
 		paths: {
-			base: '/treemenders.github.io'
+			base: 'https://treemenders.github.io'
 		}
 	}
 };
