@@ -20,7 +20,15 @@
 	}
 
 </script>
+<svelte:head>
+    <title>Contact Treemenders | Get a Quote or Ask a Question</title>
+    <meta name="description" content="Reach out to Treemenders for expert advice, quotes, or service bookings. We’re here to help with tree care, garden services, and fencing across West Sussex.">
+    <meta name="keywords" content="contact Treemenders, tree surgery quote, garden services enquiry, fencing quote, Chichester, West Sussex">
+    <meta name="author" content="Treemenders">
+    <meta name="robots" content="index, follow">
 
+
+</svelte:head>
 <Hero 
     heading="Get in Touch"
     content="We're here to help you with all your tree care needs."
@@ -38,9 +46,15 @@
         </ul>
         <p>Or, please use our contact form.</p>
         <form on:submit|preventDefault={handleSubmit}>
-            <input type="text" bind:value={name} placeholder="Your Name" required />
-            <input type="email" bind:value={email} placeholder="example@email.com" required />
-            <textarea bind:value={message} placeholder="Your Message" required></textarea>
+            <label for="name">Your name</label>
+            <input id="name" type="text" bind:value={name} placeholder="Your Name" required />
+
+            <label for="email">Your email address</label>
+            <input id="email" type="email" bind:value={email} placeholder="example@email.com" required />
+
+            <label for="message">Your message</label>
+            <textarea id="message" bind:value={message} placeholder="Your Message" required></textarea>
+
             <button type="submit">Send</button>
         </form>
 
@@ -53,6 +67,10 @@
 </div>
 
 <style>
+
+    label {
+        margin-bottom: 0;
+    }
     .container.contact{
         display: grid;
         grid-template-columns: 1fr 1fr;

@@ -17,7 +17,9 @@
 <Nav />
 
 <!-- Body -->
- <slot/>
+ <main>
+    <slot/>
+ </main>
 
 <!-- footer -->
  <Footer />

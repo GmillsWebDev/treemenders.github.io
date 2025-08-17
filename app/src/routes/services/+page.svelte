@@ -12,6 +12,14 @@
     const allServices = [...trees, ...gardens, ...specialist];
 </script>
 
+<svelte:head>
+    <title>Our Services | Tree Care, Garden Maintenance & Fencing in West Sussex</title>
+    <meta name="description" content="Explore Treemenders’ full range of services—from expert tree surgery to garden care and fencing. Serving Chichester and the wider West Sussex area.">
+    <meta name="keywords" content="tree surgery, garden maintenance, fencing services, hedge trimming, stump grinding, Chichester, West Sussex, arborist services">
+    <meta name="author" content="Treemenders">
+    <meta name="robots" content="index, follow">
+
+</svelte:head>
 
 <Hero 
     heading={`Services`}
