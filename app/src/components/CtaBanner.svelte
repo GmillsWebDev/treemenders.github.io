@@ -5,7 +5,7 @@
 <section class="ctaBanner">
     <div class="container">
         <h2>Ready to transform your outdoor space?</h2>
-        <Button variant="primary" content="Get Started" linkUrl="/contact" />
+        <Button variant="secondary" content="Get Started" linkUrl="/contact" />
     </div>
 </section>
 

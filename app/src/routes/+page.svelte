@@ -154,8 +154,10 @@ background: linear-gradient(90deg,rgba(66, 53, 108, 1) 0%, rgba(66, 53, 108, 1) 
         flex-direction: column;
         
         .service-cards {
-            display:flex;
-            justify-content: space-around;
+            /* display:flex;
+            justify-content: space-around; */
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             flex-direction: row;
             gap: 2rem;
             margin-bottom: 2rem;
@@ -167,6 +169,11 @@ background: linear-gradient(90deg,rgba(66, 53, 108, 1) 0%, rgba(66, 53, 108, 1) 
             }    
         
     }
+
+    /* @media screen and (max-width:1200px){
+        .services
+    } */
+
 
     @media screen and (max-width: 650px) {
         .threePanels {
