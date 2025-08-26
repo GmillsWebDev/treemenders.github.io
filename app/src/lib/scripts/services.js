@@ -1,12 +1,12 @@
 import defaultImg from '$lib/images/images/chainsaw2.webp?enhanced';
-import { treeFelling, pollarding, crownReduction, crownLifting } from '$lib/scripts/servicesImages.js';
+import { servicesImages } from '$lib/scripts/servicesImages.js';
 
 export const trees = [
 	{
 		title: 'Tree Felling',
 		slug: 'tree-felling',
 		description: 'Safe and efficient removal of trees, including those in confined spaces.',
-		image: treeFelling,
+		image: servicesImages.treeFelling,
 		alt: 'A tree surgeon using a chainsaw to cut down a tree, they are wearing orange, high vis safety gear and a helmet with a face shield.',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
@@ -59,7 +59,7 @@ export const trees = [
 		title: 'Pollarding',
 		slug: 'pollarding',
 		description: 'Controlling tree size and shape for health and aesthetics.',
-		image: pollarding,
+		image: servicesImages.pollarding,
 		alt: 'Rows of pollarded trees in a park cast long shadows on the ground under clear blue sky.',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
@@ -113,8 +113,8 @@ export const trees = [
 		title: 'Crown Reduction',
 		slug: 'crown-reduction',
 		description: 'Reducing the height and spread of the tree canopy.',
-		image: crownReduction,
-		alt: 'Tree Removal',
+		image: servicesImages.crownReduction,
+		alt: 'A worker wearing safety gear trims a tree branch with a chainsaw while standing on a large branch.',
 		pageContent: {
 			bannerTitle: 'Crown Reduction & Canopy Management',
 			bannerTag: 'Reduce height and spread—while preserving natural beauty.',
@@ -167,8 +167,8 @@ export const trees = [
 		title: "Crown Thinning",
     slug: "crown-thinning",
     description: "Removing select branches to improve light penetration and airflow.",
-    image: crownLifting,
-    alt: "Tree Removal",
+    image: servicesImages.crownThinning,
+    alt: "Treemenders arborist trims high tree branch near home using chainsaw and safety gear, ensuring safe, professional tree care.",
     pageContent: {
         bannerTitle: "Crown Thinning for Light & Airflow",
         bannerTag: "Let in more light and keep your tree healthy.",
@@ -222,8 +222,8 @@ export const trees = [
 		title: "Crown Lifting",
     slug: "crown-lifting",
     description: "Raising the lower branches for clearance and visibility.",
-    image: defaultImg,
-    alt: "Tree Removal",
+    image: servicesImages.crownLifting,
+    alt: "Sunny park with mature trees and open grassy space.",
     pageContent: {
         bannerTitle: "Crown Lifting & Clearance",
         bannerTag: "Create space beneath your trees for life and light.",
@@ -276,8 +276,8 @@ export const trees = [
 		title: "Tree Pruning & Shaping",
     slug: "tree-pruning-shaping",
     description: "Enhancing tree structure and appearance.",
-    image: defaultImg,
-    alt: "Tree Removal",
+    image: servicesImages.treePruning,
+    alt: "Operative using a manual tree saw to cut back a smaller branch from a tree.",
     pageContent: {
         bannerTitle: "Tree Pruning & Artful Shaping",
         bannerTag: "Bring out the best in your trees with expert care.",
@@ -330,8 +330,8 @@ export const trees = [
 		title: 'Tree Planting',
     slug: 'tree-planting',
     description: 'Expert tree planting for gardens and landscapes. We select, position, and plant trees that thrive—adding beauty, shade, and biodiversity to your outdoor space.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.treePlanting,
+    alt: 'A new planted. the person planting it is wearing yellow gardening gloves.',
     pageContent: {
         bannerTitle: 'Tree Planting & Landscape Enhancement',
         bannerTag: 'Grow something lasting—beautiful trees planted with care and expertise.',
@@ -441,8 +441,8 @@ export const gardens = [
 		title: 'Hedge trimming and shaping',
     slug: 'hedge-trimming-shaping',
     description: 'Regular maintenance and decorative shaping.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.hedgeTrimming,
+    alt: 'Trimming the top of a hedge with an electric hedge cutter.',
     pageContent: {
         bannerTitle: 'Hedge Trimming & Artistic Shaping',
         bannerTag: 'Frame your garden with perfectly maintained hedges.',
@@ -495,8 +495,8 @@ export const gardens = [
 		title: 'Shrub & Topiary care',
     slug: 'shrub-topiary-care',
     description: 'Precision trimming for ornamental plants.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.topiary,
+    alt: 'Trees and hedges in a park or large garden that have been shaped into cones and other geometric shapes.',
     pageContent: {
         bannerTitle: 'Shrub & Topiary Care',
         bannerTag: 'Keep your shrubs and topiary crisp, healthy, and charming.',
@@ -714,8 +714,8 @@ export const specialist = [
 		title: 'Emergency Tree Work',
     slug: 'emergency-tree-work',
     description: 'Rapid response for storm damage or hazardous trees.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.emergencyWorks,
+    alt: 'A tree surgeon halfway up a tree, held in place by a harness.',
     pageContent: {
         bannerTitle: 'Emergency Tree Work & Storm Recovery',
         bannerTag: 'Fast, professional response when tree hazards strike.',
