@@ -1,12 +1,13 @@
-import defaultImg from '$lib/images/images/chainsaw2.webp';
+import defaultImg from '$lib/images/images/chainsaw2.webp?enhanced';
+import { treeFelling, pollarding, crownReduction, crownLifting } from '$lib/scripts/servicesImages.js';
 
 export const trees = [
 	{
 		title: 'Tree Felling',
 		slug: 'tree-felling',
 		description: 'Safe and efficient removal of trees, including those in confined spaces.',
-		image: defaultImg,
-		alt: 'Tree Removal',
+		image: treeFelling,
+		alt: 'A tree surgeon using a chainsaw to cut down a tree, they are wearing orange, high vis safety gear and a helmet with a face shield.',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
 			bannerTag: 'Safe, stress-free tree removal that puts your garden first.',
@@ -58,8 +59,8 @@ export const trees = [
 		title: 'Pollarding',
 		slug: 'pollarding',
 		description: 'Controlling tree size and shape for health and aesthetics.',
-		image: defaultImg,
-		alt: 'Tree Removal',
+		image: pollarding,
+		alt: 'Rows of pollarded trees in a park cast long shadows on the ground under clear blue sky.',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
 			bannerTag: 'Safe, stress-free tree removal that puts your garden first.',
@@ -112,7 +113,7 @@ export const trees = [
 		title: 'Crown Reduction',
 		slug: 'crown-reduction',
 		description: 'Reducing the height and spread of the tree canopy.',
-		image: defaultImg,
+		image: crownReduction,
 		alt: 'Tree Removal',
 		pageContent: {
 			bannerTitle: 'Crown Reduction & Canopy Management',
@@ -166,7 +167,7 @@ export const trees = [
 		title: "Crown Thinning",
     slug: "crown-thinning",
     description: "Removing select branches to improve light penetration and airflow.",
-    image: defaultImg,
+    image: crownLifting,
     alt: "Tree Removal",
     pageContent: {
         bannerTitle: "Crown Thinning for Light & Airflow",

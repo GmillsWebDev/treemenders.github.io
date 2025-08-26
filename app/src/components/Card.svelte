@@ -1,5 +1,5 @@
 <script>
-    export let cardImg;
+    export let cardImg = "";
     export let cardAlt;
     export let cardHeading = "Heading";
     export let cardDescription = "Description";
@@ -7,7 +7,7 @@
 
 <div class="cardContainer">
     <div class="image">
-        <img src={cardImg} alt={cardAlt}>
+        <enhanced:img src={cardImg} alt={cardAlt}/>
         <h3>{cardHeading}</h3>
     </div>
     <div class="content">
@@ -34,6 +34,8 @@
     .image{
         position: relative;
         overflow: hidden;
+        max-height: 15rem;
+        
         h3{
         color: var(--colour-primary);
         position: absolute;

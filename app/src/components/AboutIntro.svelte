@@ -1,11 +1,11 @@
 <script>
     import '../styles/app.css'
-    import introImg from '$lib/images/images/chainsaw2.webp';
+    import introImg from '$lib/images/images/chainsaw2.webp?enhanced';
 </script>
 
 <div class="container">
     <div class="img">
-        <img src={introImg} alt="Chainsaw cutting a tree" />
+        <enhanced:img src={introImg} alt="Chainsaw cutting a tree" />
     </div>
     <div class="content">
         <h2>About</h2>
@@ -39,11 +39,11 @@
         top: 0;
         left: 2rem;
     }
-    .img img {
+    /* .img img {
         width: 100%;
         height: auto;
         border-radius: 4px;
-    }
+    } */
 
     .content {
         position: relative;
