@@ -7,6 +7,8 @@
     import Review from "../components/Review.svelte";
     import CtaBanner from "../components/CtaBanner.svelte";
 
+    import {homeImages} from "$lib/scripts/servicesImages.js";
+
     import defaultImg from "$lib/images/images/chainsaw2.webp";
 </script>
 
@@ -50,7 +52,7 @@
         <h2>Services</h2>
         <div class="service-cards">
         <Card
-            cardImg={defaultImg}
+            cardImg={homeImages.treeFelling}
             cardAlt="Tree Felling"
             cardHeading="Tree Felling"
             cardDescription="Safe and efficient removal of trees, including those in confined spaces."
@@ -58,21 +60,21 @@
             <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling" />
         </Card>
         <Card
-            cardImg={defaultImg}
-            cardAlt="Tree Care Service"
+            cardImg={homeImages.gardenWaste}
+            cardAlt="Site Clearance"
             cardHeading="Site Clearance"
             cardDescription="Preparing land for construction or landscaping."
         >
             <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance" /></Card>
         <Card
-            cardImg={defaultImg}
-            cardAlt="Tree Care Service"
+            cardImg={homeImages.hedgeTrimming}
+            cardAlt="Hedge Trimming"
             cardHeading="Hedge trimming and shaping"
             cardDescription="Regular maintenance and decorative shaping."
         ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping" /></Card>
         <Card
-            cardImg={defaultImg}
-            cardAlt="Tree Care Service"
+            cardImg={homeImages.treeSurvey}
+            cardAlt="Tree Surveys"
             cardHeading="Tree Surveys"
             cardDescription="Arboricultural assessments for planning applications or safety checks."
         >
@@ -80,7 +82,7 @@
     </div>
 
 
-    <div class="btnContainer"><Button variant="primary" content="All Services" linkUrl="/services" /></div>
+    <div class="btnContainer"><Button variant="primary" content="View all Services" linkUrl="/services" /></div>
 
     </div>
     
@@ -88,6 +90,7 @@
 
 <div class="container-full">
     <div class="container">
+        <h2>A service you can trust</h2>
         <Review
             reviewText={`<p>I had a large tree in my back garden that had started leaning a bit too close to the house, and I wasn’t sure what to do. I found Treemenders online and gave them a call—Jake came out to take a look and was really friendly and professional. He explained everything clearly and didn’t push me into anything, which I appreciated.
 </p>
@@ -98,6 +101,14 @@
 </div>
 <CtaBanner />
 <style>
+
+    .btnContainer{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        color: var(--colour-primary);
+    }
 
     .divider {
         background: var(--colour-accent);

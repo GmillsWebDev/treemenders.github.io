@@ -44,7 +44,7 @@
             <li><i class="fa-solid fa-mobile-screen-button"></i> <strong>Phone:</strong> <a href="tel:+447496340967">+44 7496 340967</a></li>
             <li><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:Treemendersarb@gmail.com">Treemendersarb@gmail.com</a></li>
         </ul>
-        <p>Or, please use our contact form.</p>
+        <!-- <p>Or, please use our contact form.</p>
         <form on:submit|preventDefault={handleSubmit}>
             <label for="name">Your name</label>
             <input id="name" type="text" bind:value={name} placeholder="Your Name" required />
@@ -58,7 +58,7 @@
             <button type="submit">Send</button>
         </form>
 
-        <p>{status}</p>
+        <p>{status}</p> -->
 
     </div>
     <div class="map">

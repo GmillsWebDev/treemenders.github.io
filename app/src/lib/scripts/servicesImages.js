@@ -1,15 +1,28 @@
-import treeFelling from '$lib/images/services/treeFelling.jpg?enhanced';
-import pollarding from '$lib/images/services/pollarding2.jpg?enhanced';
-import crownReduction from '$lib/images/services/crownReduction.webp?enhanced';
-import crownThinning from '$lib/images/services/crownThinning.jpg?enhanced';
-import crownLifting from '$lib/images/services/crownLifting.webp?enhanced';
-import treePruning from '$lib/images/services/treePruning.jpg?enhanced';
-import treePlanting from '$lib/images/services/treePlanting.png?enhanced';
-import hedgeTrimming from '$lib/images/services/hedgeTrimming2.webp?enhanced';
-import topiary from '$lib/images/services/topiary.jpg?enhanced';
+import treeFelling from '$lib/images/services/treeFelling.jpg';
+import pollarding from '$lib/images/services/pollarding2.jpg';
+import crownReduction from '$lib/images/services/crownReduction.webp';
+import crownThinning from '$lib/images/services/crownThinning.jpg';
+import crownLifting from '$lib/images/services/crownLifting.webp';
+import treePruning from '$lib/images/services/treePruning.jpg';
+import treePlanting from '$lib/images/services/treePlanting.png';
+import hedgeTrimming from '$lib/images/services/hedgeTrimming2.webp';
+import topiary from '$lib/images/services/topiary.jpg';
+import stumpGrinding from '$lib/images/services/StumpGrinding.png'
+import fencing from '$lib/images/services/Fencing.jpg';
+import gardenClearance from '$lib/images/services/GardenClearance.jpg'
+import treeSurvey from '$lib/images/services/treeSurvey.webp'
+import commercialMaintenance from '$lib/images/services/CommercialMaintenance.jpg'
+import gardenWaste from '$lib/images/services/gardenWaste.jpg';
 
 
-import emergencyWorks from '$lib/images/services/emergencyTreeWork.webp?enhanced';
+import emergencyWorks from '$lib/images/services/emergencyTreeWork.webp';
+
+export const homeImages = {
+  treeFelling,
+  hedgeTrimming,
+  gardenWaste,
+  treeSurvey
+}
 
 
 export const servicesImages = {
@@ -22,5 +35,11 @@ export const servicesImages = {
   treePlanting,
   hedgeTrimming,
   topiary,
-  emergencyWorks
+  emergencyWorks,
+  stumpGrinding,
+  fencing,
+  gardenClearance,
+  treeSurvey,
+  commercialMaintenance,
+  gardenWaste
 };

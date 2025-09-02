@@ -1,4 +1,4 @@
-import defaultImg from '$lib/images/images/chainsaw2.webp?enhanced';
+import defaultImg from '$lib/images/images/chainsaw2.webp';
 import { servicesImages } from '$lib/scripts/servicesImages.js';
 
 export const trees = [
@@ -549,8 +549,8 @@ export const gardens = [
 		title: 'Garden Clearance',
     slug: 'garden-clearance',
     description: 'Removing overgrowth, debris, and unwanted vegetation.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.gardenClearance,
+    alt: 'Garden Clearance',
     pageContent: {
         bannerTitle: 'Garden Clearance & Fresh Starts',
         bannerTag: 'Reclaim your outdoor space with a thorough tidy-up.',
@@ -603,8 +603,8 @@ export const gardens = [
 		title: 'Stump Grinding and removal',
     slug: 'stump-grinding-removal',
     description: 'Eliminating stumps below ground level for replanting or landscaping.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.stumpGrinding,
+    alt: 'A large piece of machinery grinding a tree stump. the area is covered with sawdust.',
     pageContent: {
         bannerTitle: 'Stump Grinding & Removal',
         bannerTag: 'Say goodbye to unsightly stumps and reclaim your garden.',
@@ -657,8 +657,8 @@ export const gardens = [
 		title: 'Fencing',
     slug: 'fencing',
     description: 'Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and curb appeal.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.fencing,
+    alt: 'A white picket fence running along a garden.',
     pageContent: {
         bannerTitle: 'Garden Fencing & Boundary Solutions',
         bannerTag: 'Secure, stylish fencing that frames your garden and protects your space.',
@@ -768,8 +768,8 @@ export const specialist = [
 		title: 'Tree Surveys',
     slug: 'tree-surveys',
     description: 'Arboricultural assessments for planning applications or safety checks.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.treeSurvey,
+    alt: 'Tree Survey',
     pageContent: {
         bannerTitle: 'Professional Tree Surveys & Reports',
         bannerTag: 'Insightful assessments to guide your tree decisions.',
@@ -822,8 +822,8 @@ export const specialist = [
 		title: 'Site Clearance',
     slug: 'site-clearance',
     description: 'Preparing land for construction or landscaping.',
-    image: defaultImg,
-    alt: 'Tree Removal',
+    image: servicesImages.gardenWaste,
+    alt: 'Garden Waste Clearance',
     pageContent: {
         bannerTitle: 'Site Clearance for Development & Construction',
         bannerTag: 'Prepare your land for success with comprehensive clearance.',
@@ -876,7 +876,7 @@ export const specialist = [
 		title: 'Commercial Grounds Maintenance',
     slug: 'commercial-grounds-maintenance',
     description: 'Ongoing care for business parks, schools, estates, etc.',
-    image: defaultImg,
+    image: servicesImages.commercialMaintenance,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Commercial Grounds Maintenance & Care',

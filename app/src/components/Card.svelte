@@ -1,21 +1,26 @@
 <script>
-    export let cardImg = "";
-    export let cardAlt;
-    export let cardHeading = "Heading";
-    export let cardDescription = "Description";
+  export let cardImg;
+  export let cardAlt;
+  export let cardHeading = 'Heading';
+  export let cardDescription = 'Description';
 </script>
 
 <div class="cardContainer">
-    <div class="image">
-        <enhanced:img src={cardImg} alt={cardAlt}/>
+  <div class="image">
+    <img loading="lazy" src={cardImg} alt={cardAlt} />
+  </div>
+  <div class="content">
+    <div class="heading">
         <h3>{cardHeading}</h3>
     </div>
-    <div class="content">
-        <p class="description">{cardDescription}</p>
+<div class="description">
+        <p>{cardDescription}</p>
         <slot name="button"></slot>
     </div>
-    
+        
+  </div>
 </div>
+
 
 <style>
     .cardContainer {
@@ -34,21 +39,28 @@
     .image{
         position: relative;
         overflow: hidden;
-        max-height: 15rem;
+        max-height: 13.5rem;
         
-        h3{
+    }
+
+    .content{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+    h3{
         color: var(--colour-primary);
-        position: absolute;
-        bottom: 0;
-        padding: 0.5rem;
-        margin-bottom: 0;
+        /* padding: 0.5rem 0.7rem; */
+        margin: 0;
         background: var(--colour-white);
         max-width: 75%;
         width: fit-content;
-        border-top-right-radius: 1.2rem;
-    }
-    }
-    .content{
-        padding: 1rem;
+        /* border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-bottom: 1px solid var(--colour-primary);
+        border-right: 1px solid var(--colour-primary); */
     }
 </style>

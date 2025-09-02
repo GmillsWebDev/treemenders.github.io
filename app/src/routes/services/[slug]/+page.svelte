@@ -19,7 +19,7 @@
     <div class="container">
     <div class="introContainer">
         <div class="image">
-            <enhanced:img src={service.image} alt={service.alt} />
+            <img src={service.image} alt={service.alt} />
         </div>
         <div class="content">
             {@html service.pageContent.longDesc}
