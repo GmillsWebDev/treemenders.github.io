@@ -18,7 +18,7 @@
     content={`Always on hand to help with your tree care needs.`}
     bannerBg={bannerImg}
 >
-    <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/about" />
+    <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/contact" />
 </Hero>
 
 <AboutIntro />
