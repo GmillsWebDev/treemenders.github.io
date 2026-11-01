@@ -36,7 +36,7 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 ### CI/CD (branch `ci/deploy-pipeline`)
 
-- [ ] Follow the one-off setup in `DEPLOYMENT.md`: staging subdomain (outside `public_html`), staging password, two FTP accounts, GitHub environments/secrets.
+- [ ] Follow the one-off setup in `DEPLOYMENT.md` (Eco uses DirectAdmin): staging domain + private_html symlink, staging password, two FTP accounts locked to each `public_html`, GitHub environments/secrets/variables.
 - [ ] Test with a `release/test` branch: staging prompts for a password; no 500 from the `<RequireAny>` block.
 - [ ] Decide: required reviewer on the production environment?
 - [ ] Optional: switch the upload to rsync over SSH if the Eco plan includes SSH.
@@ -82,7 +82,7 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 ## 1 November 2026 (later): CI/CD pipeline
 
-Branch `ci/deploy-pipeline`. Not yet run: needs the cPanel/GitHub setup first.
+Branch `ci/deploy-pipeline`. Not yet run: needs the DirectAdmin/GitHub setup first.
 
 - `.github/workflows/deploy.yml`: PRs build + `svelte-check` + check all service pages were built. Push to `release/**` deploys to staging, push to `main` to production, over FTPS (incremental, via `SamKirkland/FTP-Deploy-Action`). GitHub Environments hold per-site FTP credentials; one deploy per environment at a time; smoke test afterwards.
 - Staging gets its own `.htaccess` (basic auth except `/.well-known/`, `X-Robots-Tag: noindex`, no HSTS/canonical redirect) and a disallow-all `robots.txt` (`deploy/staging/`). Analytics already only load on the production hostname.

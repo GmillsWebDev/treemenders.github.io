@@ -4,7 +4,7 @@
 #   push to main        -> production  (treemendersarb.co.uk)
 #   pull request        -> build + check only, no deploy
 #
-# Setup (cPanel FTP accounts, GitHub environments and secrets): see DEPLOYMENT.md.
+# Setup (DirectAdmin FTP accounts, GitHub environments and secrets): see DEPLOYMENT.md.
 
 name: Build and deploy
 
