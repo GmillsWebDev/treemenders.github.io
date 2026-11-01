@@ -53,11 +53,13 @@ Eco Web Hosting uses **DirectAdmin** (not cPanel). Each domain lives in its own 
 
 Use long generated passwords. Use the full FTP username DirectAdmin shows (including the `@domain` part) in `FTP_USERNAME`. The FTP hostname is the website domain, `treemendersarb.co.uk` ([Eco's FTP guide](https://help.ecowebhosting.co.uk/file-database-management/connecting-to-your-hosting-account-via-ftp)).
 
-FTPS checks the server's certificate matches that hostname. If the first deploy fails with a certificate/TLS error, the FTP port is presenting the shared server's certificate instead. Find the name it's issued for and use that as `FTP_SERVER`:
+**Certificate checking is off (`security: loose` in the workflow).** Checked 1 Nov 2026: the FTP port presents a certificate for `oceanus.hostns.io` (the shared server), sends no intermediate, and chains to Let's Encrypt's new "ISRG Root YE", which isn't in standard trust stores yet. Strict mode failed with `unable to verify the first certificate`. The connection is still TLS-encrypted; what's lost is proof the server is Eco's. To re-check:
 
 ```bash
-openssl s_client -connect treemendersarb.co.uk:21 -starttls ftp </dev/null 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName
+openssl s_client -connect oceanus.hostns.io:21 -starttls ftp -showcerts </dev/null 2>/dev/null | grep -E "s:|i:|Verify return code"
 ```
+
+If it ever reports `Verify return code: 0 (ok)`, set `FTP_SERVER` to `oceanus.hostns.io` and switch the workflow back to `security: strict`. Better still, if the plan includes SSH, switch the upload to SFTP with a pinned host key.
 
 ### 4. GitHub: environments, secrets and variables
 
@@ -92,6 +94,6 @@ Settings → Branches → add a rule for `main`: require a pull request and the 
 
 ### If the upload fails
 
-- **Certificate / TLS error**: `FTP_SERVER` doesn't match the certificate. Use the name the certificate is issued for (`openssl` command in step 3). As a last resort set `security: loose` in the workflow (still encrypted, but the certificate isn't checked).
+- **Certificate / TLS error**: see the note in step 3 (Eco's FTP certificate chain can't be verified, so the workflow uses `security: loose`).
 - **Login failed**: check the username includes `@treemendersarb.co.uk`.
 - **Timeouts**: some hosts block GitHub's IP ranges or limit connections; ask Eco Web Hosting support. If the plan has SSH access, the upload step can be switched to rsync over SSH instead.
