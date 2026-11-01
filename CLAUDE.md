@@ -9,6 +9,8 @@ Fully static SvelteKit site — no backend, no CMS, no database. All content liv
 
 The SvelteKit project is in `app/`. The repo root only holds docs. **Run all npm commands from `app/`.**
 
+`PROJECTLOG.md` tracks what's been done per session and the outstanding to-do list. Check it at the start of a session, and update it (tick items, add a dated entry) at the end.
+
 ## Commands (from `app/`)
 
 ```bash
