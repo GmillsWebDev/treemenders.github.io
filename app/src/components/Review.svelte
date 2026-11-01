@@ -7,13 +7,13 @@
 <div class="reviewWrapper">
     <div class="image">
         <a href="https://search.google.com/local/writereview?placeid=ChIJC8BiotBezQcR0PiSLj0K7b4" target="_blank">
-            <img src={image} alt="Google Review" />
+            <img src={image} alt="Leave us a Google review" />
         </a>
     </div>
     <div class="content">
-        <img src={quotes} alt="Quotes" />
+        <img src={quotes} alt="" />
         {@html reviewText}
-    <img class="closing" src={quotes} alt="Quotes" /></div>
+    <img class="closing" src={quotes} alt="" /></div>
         
         
 </div>

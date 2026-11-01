@@ -1,4 +1,3 @@
-import defaultImg from '$lib/images/images/chainsaw2.webp';
 import { servicesImages } from '$lib/scripts/servicesImages.js';
 
 export const trees = [
@@ -384,7 +383,7 @@ export const trees = [
 		title: 'Deadwood Removal',
     slug: 'deadwood-removal',
     description: 'Eliminating hazardous or decaying branches.',
-    image: defaultImg,
+    image: servicesImages.chainsaw,
     alt: 'Tree Removal',
     pageContent: {
         bannerTitle: 'Deadwood Removal for Tree Safety',
@@ -438,7 +437,7 @@ export const trees = [
 
 export const gardens = [
 	{
-		title: 'Hedge trimming and shaping',
+		title: 'Hedge Trimming & Shaping',
     slug: 'hedge-trimming-shaping',
     description: 'Regular maintenance and decorative shaping.',
     image: servicesImages.hedgeTrimming,
@@ -492,7 +491,7 @@ export const gardens = [
     }
 	},
 	{
-		title: 'Shrub & Topiary care',
+		title: 'Shrub & Topiary Care',
     slug: 'shrub-topiary-care',
     description: 'Precision trimming for ornamental plants.',
     image: servicesImages.topiary,
@@ -600,7 +599,7 @@ export const gardens = [
     }
 	},
 	{
-		title: 'Stump Grinding and removal',
+		title: 'Stump Grinding & Removal',
     slug: 'stump-grinding-removal',
     description: 'Eliminating stumps below ground level for replanting or landscaping.',
     image: servicesImages.stumpGrinding,
@@ -927,3 +926,25 @@ export const specialist = [
     }
 	}
 ];
+
+// Categories match the tabs on /services/ (rendered as <h2> sections)
+export const categories = [
+	{ key: 'trees', label: 'Tree Care', icon: 'fa-solid fa-tree', services: trees },
+	{ key: 'gardens', label: 'Garden Care', icon: 'fa-brands fa-pagelines', services: gardens },
+	{ key: 'specialist', label: 'Specialist Services', icon: 'fa-solid fa-star', services: specialist }
+];
+
+export const allServices = [...trees, ...gardens, ...specialist];
+
+/**
+ * Up to `count` other services from the same category, starting after the current one
+ * (wrapping round) so each page links to a different set of siblings.
+ * @param {string} slug
+ */
+export function getRelated(slug, count = 3) {
+	const category = categories.find((c) => c.services.some((s) => s.slug === slug));
+	if (!category) return [];
+	const list = category.services;
+	const index = list.findIndex((s) => s.slug === slug);
+	return Array.from({ length: Math.min(count, list.length - 1) }, (_, i) => list[(index + 1 + i) % list.length]);
+}

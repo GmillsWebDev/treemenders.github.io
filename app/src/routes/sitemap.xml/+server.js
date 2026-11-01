@@ -1,17 +1,16 @@
-import { trees, gardens, specialist } from '$lib/scripts/services.js';
+import { allServices } from '$lib/scripts/services.js';
+import { SITE_URL } from '$lib/site.js';
 
 // Generated at build time so new services are always included
 export const prerender = true;
 export const trailingSlash = 'never';
-
-const site = 'https://treemendersarb.co.uk';
 
 export function GET() {
 	const pages = [
 		{ path: '/', priority: '1.00' },
 		{ path: '/services/', priority: '0.80' },
 		{ path: '/contact/', priority: '0.80' },
-		...[...trees, ...gardens, ...specialist].map(({ slug }) => ({
+		...allServices.map(({ slug }) => ({
 			path: `/services/${slug}/`,
 			priority: '0.80'
 		}))
@@ -24,7 +23,7 @@ export function GET() {
 ${pages
 	.map(
 		({ path, priority }) => `<url>
-  <loc>${site}${path}</loc>
+  <loc>${SITE_URL}${path}</loc>
   <lastmod>${lastmod}</lastmod>
   <priority>${priority}</priority>
 </url>`

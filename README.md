@@ -64,13 +64,21 @@ The service's page, its `<title>`/meta description, and its `sitemap.xml` entry 
 
 ### Images
 
-1. Put the file in `app/src/lib/images/services/` (prefer `.webp`, roughly 1200px wide max, compressed).
-2. Import it in `app/src/lib/scripts/servicesImages.js` and add it to the `servicesImages` object (and `homeImages` if it's used on a home page card).
+1. Put the file in `app/src/lib/images/services/`. A good-quality JPG or WebP at least 1600px wide is ideal. Don't worry about file size: the build automatically generates compressed AVIF/WebP versions at several sizes.
+2. Import it in `app/src/lib/scripts/servicesImages.js`, copying the `?enhanced&w=...` query from the other lines exactly, and add it to the `servicesImages` object.
 3. Point the service's `image` at `servicesImages.<name>` and write descriptive `alt` text.
+
+Service cards crop images to a 3:2 landscape frame from the centre, so pick landscape photos with the subject in the middle. The service's own page shows the full image.
+
+The home page's featured cards are picked by slug in `app/src/routes/+page.svelte`.
 
 > **Match filename case exactly in imports.** Windows doesn't care about case but Linux build servers do, so `treeFelling.jpg` won't find `TreeFelling.jpg`.
 
 Other images: hero banner `lib/images/images/banner_1.webp`, About section `lib/images/images/chainsaw2.webp`, logo `lib/images/branding/logo_med.webp`.
+
+### Business details & SEO
+
+Business name, phone, email, areas served and social links used in search-engine structured data live in `app/src/lib/site.js`. Keep them matching the Google Business Profile.
 
 ### Contact details, reviews, socials
 

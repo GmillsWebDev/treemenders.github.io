@@ -21,7 +21,7 @@
 
 <nav class="navbar">
 	<div class="navbarContainer container">
-		<a class="navbar__logo" href="/"><img src="{logo}" alt="Treemenders logo – home"></a>
+		<a class="navbar__logo" href="/"><img src="{logo}" alt="Treemenders Arboriculture – home"></a>
 		<div class="navbar__links {menuOpen ? 'active' : ''}">
 			{#each links as link}
 				<a

@@ -1,27 +1,29 @@
 <script>
     import Hero from "../components/Hero.svelte";
-    import bannerImg from "$lib/images/images/banner_1.webp";
     import Button from "../components/Button.svelte";
     import AboutIntro from "../components/AboutIntro.svelte";
     import Card from "../components/Card.svelte";
     import Review from "../components/Review.svelte";
     import CtaBanner from "../components/CtaBanner.svelte";
+    import Seo from "../components/Seo.svelte";
 
-    import {homeImages} from "$lib/scripts/servicesImages.js";
+    import { allServices } from "$lib/scripts/services.js";
 
+    // Services featured on the home page, in display order
+    const featured = ['tree-felling', 'site-clearance', 'hedge-trimming-shaping', 'tree-surveys']
+        .map((slug) => allServices.find((s) => s.slug === slug))
+        .filter((s) => s !== undefined);
 </script>
 
-<svelte:head>
-    <title>Treemenders | Tree Surgery & Garden Services in Chichester & West Sussex</title>
-    <meta name="description" content="Treemenders offers expert tree care, garden maintenance, and fencing services across Chichester and West Sussex. Friendly, professional, and customer-focused.">
-    <meta name="keywords" content="tree surgery, garden services, tree removal, hedge trimming, fencing, Chichester, West Sussex, stump grinding, crown reduction">
-</svelte:head>
+<Seo
+    title="Treemenders | Tree Surgery & Garden Services in Chichester & West Sussex"
+    description="Treemenders offers expert tree care, garden maintenance, and fencing services across Chichester and West Sussex. Friendly, professional, and customer-focused."
+/>
 
 
-<Hero 
-    heading={`Professional tree care services`}
+<Hero
+    heading={`Professional Tree Surgery in Chichester & West Sussex`}
     content={`Always on hand to help with your tree care needs.`}
-    bannerBg={bannerImg}
 >
     <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/contact/" />
 </Hero>
@@ -54,36 +56,18 @@
 
 
     <div class="container services">
-        <h2>Services</h2>
+        <h2>Our Tree & Garden Services</h2>
         <div class="service-cards">
+        {#each featured as service (service.slug)}
         <Card
-            cardImg={homeImages.treeFelling}
-            cardAlt="Tree Felling"
-            cardHeading="Tree Felling"
-            cardDescription="Safe and efficient removal of trees, including those in confined spaces."
+            cardImg={service.image}
+            cardAlt={service.alt}
+            cardHeading={service.title}
+            cardDescription={service.description}
         >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling/" />
+            <Button slot="button" variant="primary" content="Learn More" linkUrl={`/services/${service.slug}/`} />
         </Card>
-        <Card
-            cardImg={homeImages.gardenWaste}
-            cardAlt="Site Clearance"
-            cardHeading="Site Clearance"
-            cardDescription="Preparing land for construction or landscaping."
-        >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance/" /></Card>
-        <Card
-            cardImg={homeImages.hedgeTrimming}
-            cardAlt="Hedge Trimming"
-            cardHeading="Hedge trimming and shaping"
-            cardDescription="Regular maintenance and decorative shaping."
-        ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping/" /></Card>
-        <Card
-            cardImg={homeImages.treeSurvey}
-            cardAlt="Tree Surveys"
-            cardHeading="Tree Surveys"
-            cardDescription="Arboricultural assessments for planning applications or safety checks."
-        >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-surveys/" /></Card>
+        {/each}
     </div>
 
 

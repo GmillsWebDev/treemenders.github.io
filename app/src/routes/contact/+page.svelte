@@ -1,16 +1,14 @@
 <script>
     import Hero from "../../components/Hero.svelte";
-    import bannerImg from "$lib/images/images/banner_1.webp";
+    import Seo from "../../components/Seo.svelte";
 </script>
-<svelte:head>
-    <title>Contact Treemenders | Get a Quote or Ask a Question</title>
-    <meta name="description" content="Reach out to Treemenders for expert advice, quotes, or service bookings. We’re here to help with tree care, garden services, and fencing across West Sussex.">
-    <meta name="keywords" content="contact Treemenders, tree surgery quote, garden services enquiry, fencing quote, Chichester, West Sussex">
-</svelte:head>
+<Seo
+    title="Contact Treemenders | Get a Quote or Ask a Question"
+    description="Reach out to Treemenders for expert advice, quotes, or service bookings. We’re here to help with tree care, garden services, and fencing across West Sussex."
+/>
 <Hero
-    heading="Get in Touch"
+    heading="Get a Free Tree Surgery Quote"
     content="We're here to help you with all your tree care needs."
-    bannerBg={bannerImg}
 />
 <div class="container contact">
     <div class="contact">

@@ -1,7 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { trees, gardens, specialist } from '$lib/scripts/services.js';
-
-const allServices = [...trees, ...gardens, ...specialist];
+import { allServices } from '$lib/scripts/services.js';
 
 // Tell the prerenderer about every service page, not just the ones it finds by crawling links
 /** @type {import('./$types').EntryGenerator} */

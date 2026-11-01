@@ -8,7 +8,7 @@
         <enhanced:img src={introImg} alt="Chainsaw cutting a tree" />
     </div>
     <div class="content">
-        <h2>About</h2>
+        <h2>About Treemenders</h2>
         <p>Welcome to Treemenders, your trusted experts in tree surgery and arboricultural services across Chichester, East Sussex, West Sussex, and Hampshire. We provide professional tree care solutions for both residential and commercial clients, combining technical expertise with a customer-first approach
 </p>
 <p>Whether you're a homeowner seeking to enhance your garden or a business in need of reliable grounds maintenance, our team is equipped to handle every aspect of tree and landscape care. From tree felling, pollarding, and hedge trimming to stump grinding, site clearance, and emergency works, we offer a comprehensive range of services tailored to both residential and commercial clients.

@@ -1,12 +1,15 @@
 <script>
-	
+	import defaultBanner from '$lib/images/images/banner_1.webp?enhanced&w=2560;1920;1280;800&withoutEnlargement';
 
 	export let heading;
-	export let bannerBg;
+	/** enhanced-img Picture object; defaults to the site-wide banner */
+	export let bannerBg = defaultBanner;
     export let content;
 </script>
 
-<div class="heroBanner" style="background-image: url('{bannerBg}');">
+<div class="heroBanner">
+	<!-- Decorative background, but a real <img> so it can be responsive and prioritised (LCP) -->
+	<enhanced:img class="heroImg" src={bannerBg} alt="" sizes="100vw" fetchpriority="high" />
 	<div class="heroContent">
 		<h1>{heading}</h1>
         <p>{content}</p>
@@ -16,15 +19,23 @@
 
 <style>
 	.heroBanner {
-		background-size: cover;
-		background-position: center;
-		height: 400px;
+		min-height: 400px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		overflow: hidden;
 		padding: 1rem;
 		margin-bottom: 4rem;
+	}
+
+	.heroImg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
 	}
 
 	.heroBanner::before {
@@ -34,6 +45,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		z-index: 1;
 		background: #000000;
 		background: linear-gradient(
 			90deg,
@@ -48,6 +60,7 @@
 		text-align: center;
 		color: var(--colour-black);
 		position: relative;
+		z-index: 2;
 		background: rgba(255, 255, 255, 0.23);
 		border-radius: 16px;
 		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -62,5 +75,5 @@
         font-size: 1.8rem;
 		font-family: var(--font-heading);
 		font-weight: 500;
-    }	
+    }
 </style>

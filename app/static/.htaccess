@@ -1,2 +1,13 @@
+# Uploaded with the site build. This file REPLACES the server's .htaccess on deploy,
+# so any server rules must live here (app/static/.htaccess).
+
 # Serve the SvelteKit-generated error page (src/routes/+error.svelte) for unknown URLs
 ErrorDocument 404 /404.html
+
+# One canonical address: https://treemendersarb.co.uk (no www, always HTTPS)
+RewriteEngine On
+# Leave SSL certificate renewal checks (cPanel AutoSSL / Let's Encrypt) untouched
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://treemendersarb.co.uk/$1 [R=301,L]

@@ -1,4 +1,5 @@
 <script>
+  /** enhanced-img Picture object (see servicesImages.js) */
   export let cardImg;
   export let cardAlt;
   export let cardHeading = 'Heading';
@@ -7,7 +8,13 @@
 
 <div class="cardContainer">
   <div class="image">
-    <img loading="lazy" src={cardImg} alt={cardAlt} />
+    <enhanced:img
+      class="cardImg"
+      src={cardImg}
+      alt={cardAlt}
+      loading="lazy"
+      sizes="(max-width: 700px) calc(100vw - 4rem), (max-width: 1100px) 45vw, 400px"
+    />
   </div>
   <div class="content">
     <div class="heading">
@@ -36,11 +43,19 @@
         }
     }
     
+    /* Fixed 3:2 frame so every card lines up regardless of the source photo's proportions */
     .image{
         position: relative;
         overflow: hidden;
-        max-height: 13.5rem;
-        
+        aspect-ratio: 3 / 2;
+    }
+
+    .cardImg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .content{

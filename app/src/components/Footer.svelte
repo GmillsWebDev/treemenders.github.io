@@ -9,7 +9,7 @@
 <div class="container">
     <div class="footerContent">
         <div class="logo">
-            <img src={logo} alt="Tree Menders Logo">
+            <img src={logo} alt="Treemenders Arboriculture logo">
             <div class="socials">
             <a href="https://www.facebook.com/people/Treemenders-Arboriculture/61575724665977/" target="_blank" aria-label="facebook"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://www.instagram.com/treemenders_arboriculture" target="_blank" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -17,7 +17,7 @@
         </div>
         <div>
             <p>Treemenders provides expert tree surgery, garden maintenance, and landscaping support across Chichester, West Sussex, and surrounding areas. From crown reduction and hedge trimming to stump removal and fencing, we help homeowners create safer, greener, and more beautiful outdoor spaces. With a friendly team, professional equipment and a passion for nature, we’re proud to offer reliable, customer-focused service you can trust, season after season.</p>
-            <p class="copy">&copy; {currentYear} Tree Menders. All rights reserved.</p>
+            <p class="copy">&copy; {currentYear} Treemenders Arboriculture. All rights reserved.</p>
         </div>
     </div>
     

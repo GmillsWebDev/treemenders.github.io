@@ -27,7 +27,7 @@ There are no tests. Verify changes with `npm run build` (must succeed, `strict: 
 
 - SvelteKit 2 + Svelte 5, plain JavaScript (JSDoc via `jsconfig.json`, no TypeScript source)
 - `@sveltejs/adapter-static`, everything prerendered (`prerender = true`, `trailingSlash = 'always'` in `src/routes/+layout.js`)
-- `@sveltejs/enhanced-img` is installed but only used in `AboutIntro.svelte`; everything else uses plain `<img>` with Vite-imported URLs
+- `@sveltejs/enhanced-img` for all photos (AVIF/WebP/fallback at several widths). Small UI images (logo, icons) are plain `<img>`
 - Font Awesome (kit script) for icons, Google Fonts (Cinzel / Reddit Sans / Tinos)
 - Analytics: Google Analytics (`G-9HS1XD1SHH`) and Contentsquare/Hotjar, both inline in `src/app.html`
 
@@ -42,18 +42,21 @@ There are no tests. Verify changes with `npm run build` (must succeed, `strict: 
 
 ```
 app/src/
-  app.html                 # <head>: default SEO meta, favicons, fonts, FA kit, GA + Contentsquare
+  app.html                 # <head>: favicons, fonts, FA kit, GA + Contentsquare (no title/description here)
   routes/
-    +layout.js / .svelte   # prerender + trailingSlash; Nav / <main> / Footer
-    +page.svelte           # Home: Hero, AboutIntro, 3 USP panels, 4 featured service cards, Review, CtaBanner
-    services/+page.svelte  # Tabbed grid (Tree Care / Garden Care / Specialist / All)
-    services/[slug]/       # Service detail page, data looked up by slug
+    +layout.js / .svelte   # prerender + trailingSlash; LocalBusiness JSON-LD; Nav / <main> / Footer
+    +page.svelte           # Home: Hero, AboutIntro, 3 USP panels, featured service cards (by slug), Review, CtaBanner
+    services/+page.svelte  # All categories rendered as <h2> sections; tabs only show/hide them
+    services/[slug]/       # Service detail: Service + BreadcrumbList JSON-LD, related services
+    sitemap.xml/+server.js # Sitemap generated at build time
+    +error.svelte          # Custom 404 / error page
     contact/+page.svelte   # Phone/email + embedded Google My Map (no contact form, by design)
-  components/              # Hero, Card, Button, Nav, Footer, AboutIntro, Review, CtaBanner (Header.svelte is empty/unused)
-  lib/scripts/services.js  # ALL service content: arrays `trees`, `gardens`, `specialist`
-  lib/scripts/servicesImages.js  # image imports -> `servicesImages` and `homeImages` maps
+  components/              # Seo, Hero, Card, Button, Nav, Footer, AboutIntro, Review, CtaBanner
+  lib/site.js              # SITE_URL + business details (name, phone, areas, socials) for SEO/structured data
+  lib/scripts/services.js  # ALL service content: `trees`, `gardens`, `specialist`, plus `categories`, `allServices`, `getRelated()`
+  lib/scripts/servicesImages.js  # enhanced-img imports -> `servicesImages` map
   lib/images/              # branding/, icons/, images/ (banners, about), services/
-app/static/                # robots.txt, sitemap.xml (hand-maintained), favicons
+app/static/                # .htaccess (404 + HTTPS/non-www redirects), robots.txt, favicons
 ```
 
 ## Service content model
@@ -71,19 +74,24 @@ Each entry in `services.js`:
 
 ## Images — gotchas
 
-- Service images: drop the file in `src/lib/images/services/`, import it in `servicesImages.js`, reference via `servicesImages.<key>` in `services.js`. Home page cards use `homeImages`.
+- Service images: drop the file in `src/lib/images/services/`, import it in `servicesImages.js` **with the same query as the others** (`?enhanced&w=1600;1200;800;480&withoutEnlargement`), reference via `servicesImages.<key>` in `services.js`.
+- These imports are `Picture` objects, not URLs: render with `<enhanced:img src={...} sizes="...">` (see `Card.svelte`). For a plain URL (e.g. og:image) use `picture.img.src`. Without an explicit `w` list, enhanced-img only emits full + half size, so huge originals would ship huge.
+- Type declarations for these query imports are in `src/images.d.ts`.
+- Source files can be large/high-res; the build resizes and compresses. Prefer JPG/WebP sources over PNG for photos (the non-AVIF fallback keeps the source format; WebP sources fall back to PNG).
 - **Filename casing:** import paths must match the filename exactly. Windows is case-insensitive so a mismatch builds locally but breaks on Linux.
-- Prefer `.webp`, sized for purpose (cards render at ~max 13.5rem tall). Always give meaningful `alt` text.
-- All page heroes currently share `images/banner_1.webp`.
+- Cards (`Card.svelte`) crop images to a fixed **3:2** frame from the centre (`object-fit: cover`); landscape photos with the subject centred work best. The service detail page shows the full uncropped image.
+- Always give meaningful `alt` text.
+- Heroes default to `images/banner_1.webp` (`Hero.svelte`); pass `bannerBg` (an enhanced Picture) to override.
 
 ## Conventions & gotchas
 
-- **Prerendering:** any dynamic route must export `entries()`. The prerender crawler only follows links in the initial HTML, and the `/services` tabs only render Tree Care initially. After building, `app/build/services/` should contain one folder per service.
-- **Internal links end in `/`** (`/contact/`, `/services/fencing/`). `trailingSlash = 'always'`, and the live host 301-redirects slashless URLs.
-- **`<title>` / description are set per page** in `<svelte:head>`. `app.html` deliberately has none, to avoid duplicate tags.
+- **Prerendering:** any dynamic route must export `entries()`. The prerender crawler only follows links in the initial HTML. After building, `app/build/services/` should contain one folder per service.
+- **Internal links end in `/`** (`/contact/`, `/services/fencing/`). `trailingSlash = 'always'`, and the live host 301-redirects slashless URLs. The canonical host is `https://treemendersarb.co.uk` (no www), enforced in `static/.htaccess`.
+- **SEO tags:** every page uses `<Seo title description [image] [jsonLd]>` (`components/Seo.svelte`) for title, description, canonical, Open Graph and Twitter tags. `app.html` deliberately has none, to avoid duplicates. Business details come from `lib/site.js`. Don't add review/rating schema for on-site testimonials (Google treats it as self-serving).
 - `sitemap.xml` is a prerendered endpoint (`src/routes/sitemap.xml/+server.js`) built from `services.js`; there is no file in `static/`.
 - There is intentionally no contact form (client decision); contact is phone/email only. There is no backend, so a form would need a third-party service.
 - **404 page:** `src/routes/+error.svelte`. The adapter's `fallback: '404.html'` emits a client-rendered shell that shows it for any unknown URL; `static/.htaccess` (`ErrorDocument 404 /404.html`) tells the LiteSpeed host (Eco Web Hosting, cPanel) to serve it. That file overwrites the server's `.htaccess` on deploy, so all server rules must live there.
+- `vite.config.js` stops the dev server watching `build/` (rebuilding while `npm run dev` runs otherwise crashes it on Windows with EBUSY).
 
 ## Deployment
 
