@@ -83,7 +83,7 @@ Business name, phone, email, areas served and social links used in search-engine
 ### Contact details, reviews, socials
 
 - Phone / email / map: `app/src/routes/contact/+page.svelte`
-- Home page review text: `app/src/routes/+page.svelte`
+- Customer reviews (home page carousel): `app/src/lib/scripts/reviews.js`. Paste new Google reviews in word for word, and keep the rating and count in `googleSummary` matching Google
 - Social links and footer blurb: `app/src/components/Footer.svelte`
 - Default SEO title/description: `app/src/app.html`; per-page overrides are in each page's `<svelte:head>`
 

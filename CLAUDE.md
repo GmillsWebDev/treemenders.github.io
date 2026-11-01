@@ -52,10 +52,11 @@ app/src/
     +error.svelte          # Custom 404 / error page
     privacy-policy/, cookie-policy/  # Legal pages (LegalPage.svelte wrapper)
     contact/+page.svelte   # Phone/email + embedded Google My Map (no contact form, by design)
-  components/              # Seo, Hero, Card, Button, Nav, Footer, AboutIntro, Review, CtaBanner,
+  components/              # Seo, Hero, Card, Button, Nav, Footer, AboutIntro, Reviews (carousel), CtaBanner,
                            # CookieConsent (banner), MapEmbed (click-to-load map), LegalPage
   lib/site.js              # SITE_URL + business details (name, owner, phone, email, areas, socials)
   lib/consent.js           # Cookie consent store + loading/removing GA & Contentsquare
+  lib/scripts/reviews.js   # Google reviews, copied by hand (no API: Places API ToS forbids storing them), + rating/count summary
   lib/scripts/services.js  # ALL service content: `trees`, `gardens`, `specialist`, plus `categories`, `allServices`, `getRelated()`
   lib/scripts/servicesImages.js  # enhanced-img imports -> `servicesImages` map
   lib/images/              # branding/, icons/, images/ (banners, about), services/

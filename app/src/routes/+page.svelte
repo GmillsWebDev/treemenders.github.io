@@ -3,14 +3,14 @@
     import Button from "../components/Button.svelte";
     import AboutIntro from "../components/AboutIntro.svelte";
     import Card from "../components/Card.svelte";
-    import Review from "../components/Review.svelte";
+    import Reviews from "../components/Reviews.svelte";
     import CtaBanner from "../components/CtaBanner.svelte";
     import Seo from "../components/Seo.svelte";
 
     import { allServices } from "$lib/scripts/services.js";
 
     // Services featured on the home page, in display order
-    const featured = ['tree-felling', 'site-clearance', 'hedge-trimming-shaping', 'tree-surveys']
+    const featured = ['tree-felling', 'site-clearance', 'hedge-trimming-shaping', 'crown-thinning']
         .map((slug) => allServices.find((s) => s.slug === slug))
         .filter((s) => s !== undefined);
 </script>
@@ -81,12 +81,7 @@
 <div class="container-full">
     <div class="container">
         <h2>A service you can trust</h2>
-        <Review
-            reviewText={`<p>I had a large tree in my back garden that had started leaning a bit too close to the house, and I wasn’t sure what to do. I found Treemenders online and gave them a call—Jake came out to take a look and was really friendly and professional. He explained everything clearly and didn’t push me into anything, which I appreciated.
-</p>
-        <p>The team came a few days later and did a brilliant job removing the tree safely and tidying up afterwards. You wouldn’t even know they’d been, except the garden looks so much better now!
-</p>`}
-        />
+        <Reviews />
     </div>
 </div>
 <CtaBanner />
