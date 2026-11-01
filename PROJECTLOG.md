@@ -34,10 +34,19 @@ Running record of work on the Treemenders site and what's still outstanding. New
 - [ ] **Scam calls (on hold, waiting on client):** client says the site is attracting scam callers. Phone/email are on the contact page, the 404 page and in the LocalBusiness JSON-LD on **every** page. Proposed: click-to-reveal phone/email (with a GA event per reveal) + remove `telephone`/`email` from the JSON-LD. Suggested to client: TPS registration, a separate business number (VoIP/second SIM), network call filtering, report scams to 7726. The number is also on Google Business Profile/Facebook, so the site may not be the source.
 - [ ] **Professional email:** consider `@treemendersarb.co.uk` (Eco Web Hosting likely includes email) instead of Gmail. If changed, update `site.js` and both policy pages.
 
-### CI/CD (branch `ci/deploy-pipeline`)
+### CI/CD (merged into `updates/NewImages`; testing on `release/DeployTest`)
 
-- [ ] Follow the one-off setup in `DEPLOYMENT.md` (Eco uses DirectAdmin): staging domain + private_html symlink, staging password, two FTP accounts locked to each `public_html`, GitHub environments/secrets/variables.
-- [ ] Test with a `release/test` branch: staging prompts for a password; no 500 from the `<RequireAny>` block.
+**Pick up here (2 Nov):** the pipeline builds and uploads to staging, but **staging returns 403** (see the 1 Nov (late) entry below).
+
+- [x] DirectAdmin/GitHub setup: staging domain, staging password, FTP accounts, environments, secrets, `SITE_URL` and `STAGING_AUTH_USER_FILE` variables.
+- [x] Build job passes; staging files swap; FTPS upload completes (files appear on the server).
+- [ ] **Fix the staging 403: the files aren't in the folder the subdomain serves.** Check:
+  - [ ] Where `index.html` actually landed (screenshot the File Manager path).
+  - [ ] Is staging a DirectAdmin **subdomain** (Subdomain Management under treemendersarb.co.uk → served from `domains/treemendersarb.co.uk/public_html/staging/`) or its **own domain** (served from `domains/staging.treemendersarb.co.uk/public_html`)? Point the staging FTP account at whichever folder is actually served, or recreate staging as its own domain. If it's a subdomain folder inside production's `public_html`, move it out: a production deploy could wipe it and production's `.htaccess` would apply to it.
+  - [ ] The staging FTP account's directory is that served folder, not one level above it.
+  - [ ] Then the HTTPS link: Domain Setup → Private HTML → symlink to `public_html`.
+  - [ ] Re-run and expect: `http://staging…` 301 to https; `https://staging…` 401 (password prompt); after logging in the site loads, `/robots.txt` is disallow-all; smoke test green. A 500 means the `<RequireAny>` block isn't supported (fallback in `DEPLOYMENT.md`).
+- [ ] Then the first production deploy: merge to `main` and run the go-live checks below.
 - [ ] Decide: required reviewer on the production environment?
 - [ ] **FTP certificate:** deploys use `security: loose` (encrypted, but unverified) because Eco's FTP server sends an incomplete chain to the new Let's Encrypt Root YE. Ask Eco: (1) does the plan include SSH/SFTP (best fix: SFTP with pinned host key), (2) can they serve the full chain on FTP. Re-check command in `DEPLOYMENT.md` step 3.
 - [ ] Once lint is fixed, add `npm run lint` to the workflow.
@@ -80,9 +89,22 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 ---
 
+## 1 November 2026 (late): first pipeline runs on staging
+
+Testing via PRs from `updates/NewImages` into `release/DeployTest`. Note: a PR run only builds (deploy shows as **skipped** by design); the deploy runs when the PR is merged, as a separate "Merge pull request…" run.
+
+- **Run 1:** failed, `STAGING_AUTH_USER_FILE` had been added as a secret instead of a variable (the workflow reads `vars`). Fixed.
+- **Docs:** Eco uses **DirectAdmin**, not cPanel; `DEPLOYMENT.md` rewritten for it. Staging password file: `/home/<user>/domains/staging.treemendersarb.co.uk/.htpasswd/public_html/.htpasswd`.
+- **Run 2:** FTPS upload failed with `unable to verify the first certificate`. Eco's FTP server (`oceanus.hostns.io`) presents a certificate for `oceanus.hostns.io` only, no intermediate, chaining to Let's Encrypt's new ISRG Root YE (not in standard trust stores). Switched the upload to `security: loose` (still encrypted, server not verified).
+- **Run 3:** upload succeeded and files are on the server, but `staging.treemendersarb.co.uk` returns **403** over both http and https, and `/index.html` and `/robots.txt` return **404**. Our `.htaccess` isn't being read (http doesn't redirect), so the web server is serving a different, empty folder from the one the FTP account uploads to. Not the private_html issue (plain http fails too). To do: see Outstanding → CI/CD.
+- Local git couldn't reach GitHub (`SSL certificate problem: unable to get local issuer certificate`); works with `git -c http.sslBackend=schannel`. Optional permanent fix: `git config --global http.sslBackend schannel`.
+- Production untouched: only a merge to `main` deploys there.
+
+---
+
 ## 1 November 2026 (later): CI/CD pipeline
 
-Branch `ci/deploy-pipeline`. Not yet run: needs the DirectAdmin/GitHub setup first.
+Built on `ci/deploy-pipeline`/`feature/CICDpipeline`, merged into `updates/NewImages` (PR #1).
 
 - `.github/workflows/deploy.yml`: PRs build + `svelte-check` + check all service pages were built. Push to `release/**` deploys to staging, push to `main` to production, over FTPS (incremental, via `SamKirkland/FTP-Deploy-Action`). GitHub Environments hold per-site FTP credentials; one deploy per environment at a time; smoke test afterwards.
 - Staging gets its own `.htaccess` (basic auth except `/.well-known/`, `X-Robots-Tag: noindex`, no HSTS/canonical redirect) and a disallow-all `robots.txt` (`deploy/staging/`). Analytics already only load on the production hostname.
