@@ -2,6 +2,8 @@
   /** enhanced-img Picture object (see servicesImages.js) */
   export let cardImg;
   export let cardAlt;
+  /** Optional object-position for the 3:2 crop, e.g. 'center 30%' (keeps more of the top) */
+  export let cardFocus = 'center';
   export let cardHeading = 'Heading';
   export let cardDescription = 'Description';
 </script>
@@ -10,6 +12,7 @@
   <div class="image">
     <enhanced:img
       class="cardImg"
+      style="object-position: {cardFocus}"
       src={cardImg}
       alt={cardAlt}
       loading="lazy"
@@ -55,7 +58,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
     }
 
     .content{

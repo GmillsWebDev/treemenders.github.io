@@ -1,12 +1,24 @@
 import { servicesImages } from '$lib/scripts/servicesImages.js';
 
+/**
+ * @typedef {object} Service
+ * @property {string} title
+ * @property {string} slug
+ * @property {string} description
+ * @property {import('vite-imagetools').Picture} image
+ * @property {string} alt
+ * @property {string} [imageFocus] CSS object-position for cropped frames, e.g. 'center 30%'
+ * @property {{ bannerTitle: string, bannerTag: string, longDesc: string, what: {id: number, content: string}[], why: {id: number, content: string}[] }} pageContent
+ */
+
+/** @type {Service[]} */
 export const trees = [
 	{
 		title: 'Tree Felling',
 		slug: 'tree-felling',
 		description: 'Safe and efficient removal of trees, including those in confined spaces.',
 		image: servicesImages.treeFelling,
-		alt: 'A tree surgeon using a chainsaw to cut down a tree, they are wearing orange, high vis safety gear and a helmet with a face shield.',
+		alt: 'Sections of a felled tree trunk cut into rounds and laid out in a back garden after removal.',
 		pageContent: {
 			bannerTitle: 'Tree Felling &amp; Removal',
 			bannerTag: 'Safe, stress-free tree removal that puts your garden first.',
@@ -59,10 +71,11 @@ export const trees = [
 		slug: 'pollarding',
 		description: 'Controlling tree size and shape for health and aesthetics.',
 		image: servicesImages.pollarding,
-		alt: 'Rows of pollarded trees in a park cast long shadows on the ground under clear blue sky.',
+		alt: 'A mature garden tree freshly pollarded back to its main limbs.',
+		imageFocus: 'center 30%',
 		pageContent: {
-			bannerTitle: 'Tree Felling &amp; Removal',
-			bannerTag: 'Safe, stress-free tree removal that puts your garden first.',
+			bannerTitle: 'Pollarding & Tree Size Control',
+			bannerTag: 'Keep your trees compact, healthy, and in proportion with your space.',
 			longDesc: `<p>Pollarding is a great way to manage the size and shape of certain trees, especially in smaller gardens or urban spaces where growth needs to be controlled. It’s a technique that involves cutting back the upper branches to encourage a dense head of foliage and keep the tree from becoming too large or unruly.</p>
         <p>We approach pollarding with care and experience, making sure it’s done at the right time of year and in a way that supports the tree’s long-term health. Not every tree is suitable for pollarding, so we’ll always assess first and talk you through the best options for your space.</p>
         <p>Whether you’re looking to tidy up a row of lime trees or keep a willow in check, we’ll make sure the result is neat, balanced, and beneficial for both the tree and your garden.</p>`,
@@ -167,7 +180,8 @@ export const trees = [
     slug: "crown-thinning",
     description: "Removing select branches to improve light penetration and airflow.",
     image: servicesImages.crownThinning,
-    alt: "Treemenders arborist trims high tree branch near home using chainsaw and safety gear, ensuring safe, professional tree care.",
+    alt: 'A tall garden tree with a light, airy crown above a hedge and driveway in front of a brick house.',
+    imageFocus: 'center 20%',
     pageContent: {
         bannerTitle: "Crown Thinning for Light & Airflow",
         bannerTag: "Let in more light and keep your tree healthy.",
@@ -222,7 +236,8 @@ export const trees = [
     slug: "crown-lifting",
     description: "Raising the lower branches for clearance and visibility.",
     image: servicesImages.crownLifting,
-    alt: "Sunny park with mature trees and open grassy space.",
+    alt: 'A mature weeping willow in a cleared back garden under a clear blue sky.',
+    imageFocus: 'center 55%',
     pageContent: {
         bannerTitle: "Crown Lifting & Clearance",
         bannerTag: "Create space beneath your trees for life and light.",
@@ -383,8 +398,9 @@ export const trees = [
 		title: 'Deadwood Removal',
     slug: 'deadwood-removal',
     description: 'Eliminating hazardous or decaying branches.',
-    image: servicesImages.chainsaw,
-    alt: 'Tree Removal',
+    image: servicesImages.deadwoodRemoval,
+    alt: 'Hollow, decayed sections of a removed tree trunk beside its stump, showing internal rot.',
+    imageFocus: 'center 35%',
     pageContent: {
         bannerTitle: 'Deadwood Removal for Tree Safety',
         bannerTag: 'Clear out dangerous branches and let your tree thrive.',
@@ -435,13 +451,15 @@ export const trees = [
 	}
 ];
 
+/** @type {Service[]} */
 export const gardens = [
 	{
 		title: 'Hedge Trimming & Shaping',
     slug: 'hedge-trimming-shaping',
     description: 'Regular maintenance and decorative shaping.',
     image: servicesImages.hedgeTrimming,
-    alt: 'Trimming the top of a hedge with an electric hedge cutter.',
+    alt: 'A long, neatly trimmed evergreen hedge running alongside a residential footpath.',
+    imageFocus: 'center 40%',
     pageContent: {
         bannerTitle: 'Hedge Trimming & Artistic Shaping',
         bannerTag: 'Frame your garden with perfectly maintained hedges.',
@@ -495,7 +513,7 @@ export const gardens = [
     slug: 'shrub-topiary-care',
     description: 'Precision trimming for ornamental plants.',
     image: servicesImages.topiary,
-    alt: 'Trees and hedges in a park or large garden that have been shaped into cones and other geometric shapes.',
+    alt: 'A neatly clipped hedge planted above a timber sleeper retaining wall.',
     pageContent: {
         bannerTitle: 'Shrub & Topiary Care',
         bannerTag: 'Keep your shrubs and topiary crisp, healthy, and charming.',
@@ -549,7 +567,8 @@ export const gardens = [
     slug: 'garden-clearance',
     description: 'Removing overgrowth, debris, and unwanted vegetation.',
     image: servicesImages.gardenClearance,
-    alt: 'Garden Clearance',
+    alt: 'A front garden bed cleared back to bare soil, with block-paved edging and a trimmed hedge left in place.',
+    imageFocus: 'center 60%',
     pageContent: {
         bannerTitle: 'Garden Clearance & Fresh Starts',
         bannerTag: 'Reclaim your outdoor space with a thorough tidy-up.',
@@ -657,7 +676,7 @@ export const gardens = [
     slug: 'fencing',
     description: 'Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and curb appeal.',
     image: servicesImages.fencing,
-    alt: 'A white picket fence running along a garden.',
+    alt: 'New timber picket fencing enclosing the front garden of a terraced house.',
     pageContent: {
         bannerTitle: 'Garden Fencing & Boundary Solutions',
         bannerTag: 'Secure, stylish fencing that frames your garden and protects your space.',
@@ -708,6 +727,7 @@ export const gardens = [
 	}
 ];
 
+/** @type {Service[]} */
 export const specialist = [
 	{
 		title: 'Emergency Tree Work',
@@ -821,8 +841,8 @@ export const specialist = [
 		title: 'Site Clearance',
     slug: 'site-clearance',
     description: 'Preparing land for construction or landscaping.',
-    image: servicesImages.gardenWaste,
-    alt: 'Garden Waste Clearance',
+    image: servicesImages.siteClearance,
+    alt: 'A cleared, overgrown bank along a metal palisade fence beside a commercial building.',
     pageContent: {
         bannerTitle: 'Site Clearance for Development & Construction',
         bannerTag: 'Prepare your land for success with comprehensive clearance.',

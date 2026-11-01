@@ -57,6 +57,7 @@
             <Card
                 cardImg={service.image}
                 cardAlt={service.alt}
+                cardFocus={service.imageFocus}
                 cardHeading={service.title}
                 cardDescription={service.description}
             >

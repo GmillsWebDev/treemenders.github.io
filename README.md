@@ -68,7 +68,7 @@ The service's page, its `<title>`/meta description, and its `sitemap.xml` entry 
 2. Import it in `app/src/lib/scripts/servicesImages.js`, copying the `?enhanced&w=...` query from the other lines exactly, and add it to the `servicesImages` object.
 3. Point the service's `image` at `servicesImages.<name>` and write descriptive `alt` text.
 
-Service cards crop images to a 3:2 landscape frame from the centre, so pick landscape photos with the subject in the middle. The service's own page shows the full image.
+Service cards crop images to a 3:2 frame, and service pages to 4:3. For portrait photos, or where the subject isn't central, add `imageFocus: 'center 30%'` (or similar) to the service in `services.js` to choose which part stays in shot. Photos straight from a phone should be rotated upright, stripped of location data and resized first (see `CLAUDE.md`).
 
 The home page's featured cards are picked by slug in `app/src/routes/+page.svelte`.
 

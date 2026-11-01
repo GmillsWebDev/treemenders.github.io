@@ -52,7 +52,13 @@
     <div class="container">
     <div class="introContainer">
         <div class="image">
-            <enhanced:img src={service.image} alt={service.alt} sizes="(max-width: 768px) 100vw, 50vw" />
+            <enhanced:img
+                class="serviceImg"
+                style="object-position: {service.imageFocus ?? 'center'}"
+                src={service.image}
+                alt={service.alt}
+                sizes="(max-width: 768px) 100vw, 50vw"
+            />
         </div>
         <div class="content">
             {@html service.pageContent.longDesc}
@@ -91,6 +97,7 @@
             <Card
                 cardImg={item.image}
                 cardAlt={item.alt}
+                cardFocus={item.imageFocus}
                 cardHeading={item.title}
                 cardDescription={item.description}
             >
@@ -111,8 +118,17 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        /* 4:3 frame so portrait and landscape photos sit consistently beside the text */
         .image{
-            justify-content: top;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .serviceImg{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .content{
             justify-content: center;

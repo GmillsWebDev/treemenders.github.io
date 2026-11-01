@@ -66,6 +66,7 @@ Each entry in `services.js`:
 ```js
 {
   title, slug, description, image, alt,
+  imageFocus,  // optional CSS object-position for cropped frames, e.g. 'center 30%'
   pageContent: { bannerTitle, bannerTag, longDesc /* HTML string */, what: [{id, content}], why: [{id, content}] }
 }
 ```
@@ -79,7 +80,9 @@ Each entry in `services.js`:
 - Type declarations for these query imports are in `src/images.d.ts`.
 - Source files can be large/high-res; the build resizes and compresses. Prefer JPG/WebP sources over PNG for photos (the non-AVIF fallback keeps the source format; WebP sources fall back to PNG).
 - **Filename casing:** import paths must match the filename exactly. Windows is case-insensitive so a mismatch builds locally but breaks on Linux.
-- Cards (`Card.svelte`) crop images to a fixed **3:2** frame from the centre (`object-fit: cover`); landscape photos with the subject centred work best. The service detail page shows the full uncropped image.
+- Cards (`Card.svelte`) crop to a fixed **3:2** frame and the service detail page to **4:3**, both `object-fit: cover`. For portrait photos set `imageFocus` on the service (e.g. `'center 30%'` keeps more of the top) and check the crop.
+- Client photos: rotate upright, strip metadata (phone photos carry GPS), and resize to ~2400px before committing. `sharp(src).rotate().resize(2400, 2400, { fit: 'inside' }).jpeg({ quality: 85, mozjpeg: true })` does all three.
+- `images/services/replaced/` holds stock images swapped out in Nov 2026 (see `IMAGE-CHANGES.md`); nothing imports them. Delete both once the new images are signed off.
 - Always give meaningful `alt` text.
 - Heroes default to `images/banner_1.webp` (`Hero.svelte`); pass `bannerBg` (an enhanced Picture) to override.
 
