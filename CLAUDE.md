@@ -107,4 +107,8 @@ Each entry in `services.js`:
 
 ## Deployment
 
-`npm run build` → upload contents of `app/build/` to the static host. There is no CI in the repo.
+GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys over FTPS: `release/**` → staging (`staging.treemendersarb.co.uk`, password-protected, noindex), `main` → production. PRs only build + check. Setup, secrets and troubleshooting: `DEPLOYMENT.md`.
+
+- Staging uses `deploy/staging/.htaccess` and `robots.txt` instead of the ones in `app/static/`. Server rules added to `app/static/.htaccess` that staging also needs must be copied there.
+- Don't delete `.ftp-deploy-sync-state.json` on the server (the deploy's record of uploaded files).
+- Manual fallback: `npm run build`, then upload `app/build/` including the hidden `.htaccess`.
