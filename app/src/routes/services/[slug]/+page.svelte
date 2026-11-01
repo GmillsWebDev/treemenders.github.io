@@ -101,7 +101,7 @@
                 cardHeading={item.title}
                 cardDescription={item.description}
             >
-                <Button slot="button" variant="secondary" content="Learn More" linkUrl={`/services/${item.slug}/`} />
+                <Button slot="button" variant="secondary" content="Learn More" hiddenText={` about ${item.title}`} linkUrl={`/services/${item.slug}/`} />
             </Card>
             {/each}
         </div>

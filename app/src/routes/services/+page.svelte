@@ -63,6 +63,7 @@
             >
                 <Button slot="button"
                 content="Learn More"
+                hiddenText={` about ${service.title}`}
                 variant="secondary"
                 linkUrl={`/services/${service.slug}/`}
                 />

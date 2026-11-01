@@ -2,11 +2,26 @@
     export let content;
     export let linkUrl;
     export let variant = 'primary'; // Default variant can be 'primary', 'secondary', etc.
+    /** Extra link text for screen readers & search engines only, e.g. ' about Fencing' after 'Learn More' */
+    export let hiddenText = '';
 </script>
 
-<a href="{linkUrl}" class="btn {variant}">{content}</a>
+<a href="{linkUrl}" class="btn {variant}">{content}{#if hiddenText}<span class="visuallyHidden">{hiddenText}</span>{/if}</a>
 
 <style>
+    /* Hidden visually but still read by screen readers and search engines */
+    .visuallyHidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     .btn {
         display: inline-block;
         padding: 0.5rem 1.5rem;
