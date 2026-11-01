@@ -1,0 +1,2 @@
+# Serve the SvelteKit-generated error page (src/routes/+error.svelte) for unknown URLs
+ErrorDocument 404 /404.html

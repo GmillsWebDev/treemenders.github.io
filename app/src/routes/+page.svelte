@@ -9,8 +9,13 @@
 
     import {homeImages} from "$lib/scripts/servicesImages.js";
 
-    import defaultImg from "$lib/images/images/chainsaw2.webp";
 </script>
+
+<svelte:head>
+    <title>Treemenders | Tree Surgery & Garden Services in Chichester & West Sussex</title>
+    <meta name="description" content="Treemenders offers expert tree care, garden maintenance, and fencing services across Chichester and West Sussex. Friendly, professional, and customer-focused.">
+    <meta name="keywords" content="tree surgery, garden services, tree removal, hedge trimming, fencing, Chichester, West Sussex, stump grinding, crown reduction">
+</svelte:head>
 
 
 <Hero 
@@ -18,7 +23,7 @@
     content={`Always on hand to help with your tree care needs.`}
     bannerBg={bannerImg}
 >
-    <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/contact" />
+    <Button slot="button" variant="primary" content="Get In Touch" linkUrl="/contact/" />
 </Hero>
 
 <AboutIntro />
@@ -57,7 +62,7 @@
             cardHeading="Tree Felling"
             cardDescription="Safe and efficient removal of trees, including those in confined spaces."
         >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling" />
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-felling/" />
         </Card>
         <Card
             cardImg={homeImages.gardenWaste}
@@ -65,24 +70,24 @@
             cardHeading="Site Clearance"
             cardDescription="Preparing land for construction or landscaping."
         >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance" /></Card>
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/site-clearance/" /></Card>
         <Card
             cardImg={homeImages.hedgeTrimming}
             cardAlt="Hedge Trimming"
             cardHeading="Hedge trimming and shaping"
             cardDescription="Regular maintenance and decorative shaping."
-        ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping" /></Card>
+        ><Button slot="button" variant="primary" content="Learn More" linkUrl="/services/hedge-trimming-shaping/" /></Card>
         <Card
             cardImg={homeImages.treeSurvey}
             cardAlt="Tree Surveys"
             cardHeading="Tree Surveys"
             cardDescription="Arboricultural assessments for planning applications or safety checks."
         >
-            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-surveys" /></Card>
+            <Button slot="button" variant="primary" content="Learn More" linkUrl="/services/tree-surveys/" /></Card>
     </div>
 
 
-    <div class="btnContainer"><Button variant="primary" content="View all Services" linkUrl="/services" /></div>
+    <div class="btnContainer"><Button variant="primary" content="View all Services" linkUrl="/services/" /></div>
 
     </div>
     

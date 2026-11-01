@@ -16,9 +16,6 @@
     <title>Our Services | Tree Care, Garden Maintenance & Fencing in West Sussex</title>
     <meta name="description" content="Explore Treemenders’ full range of services—from expert tree surgery to garden care and fencing. Serving Chichester and the wider West Sussex area.">
     <meta name="keywords" content="tree surgery, garden maintenance, fencing services, hedge trimming, stump grinding, Chichester, West Sussex, arborist services">
-    <meta name="author" content="Treemenders">
-    <meta name="robots" content="index, follow">
-
 </svelte:head>
 
 <Hero 
@@ -73,7 +70,7 @@
             <Button slot="button"
             content="Learn More"
             variant="secondary"
-            linkUrl={`/services/${service.slug.toLowerCase().replace(/\s+/g, '-')}`}
+            linkUrl={`/services/${service.slug}/`}
             />
         </Card>
     {/each}
@@ -106,8 +103,8 @@
             font-size: 1.5rem;
 
             &:hover {
-                background-color: darken(var(--colour-primary), 10%);
-                color: var(--colour-primary);
+                background-color: var(--colour-secondary);
+                color: var(--colour-black);
             }
 
             &.selected {

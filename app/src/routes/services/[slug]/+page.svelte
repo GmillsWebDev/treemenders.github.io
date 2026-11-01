@@ -1,6 +1,6 @@
 <script>
     export let data;
-    const { service } = data;
+    $: ({ service } = data);
 
     import Hero from '../../../components/Hero.svelte';
     import Button from '../../../components/Button.svelte';
@@ -8,10 +8,12 @@
     import bannerImg from '$lib/images/images/banner_1.webp';
 </script>
 
+<svelte:head>
+    <title>{service.title} | Treemenders – Chichester & West Sussex</title>
+    <meta name="description" content="{service.description} Serving Chichester and West Sussex.">
+</svelte:head>
 
-
-{#if service}
-<Hero 
+<Hero
     heading={service.title}
     content={service.pageContent.bannerTag}
     bannerBg={bannerImg}
@@ -25,8 +27,8 @@
             {@html service.pageContent.longDesc}
             <Button 
                 variant="primary" 
-                content="Get In Touch" 
-                linkUrl="/contact"/>
+                content="Get In Touch"
+                linkUrl="/contact/"/>
         </div>
     </div>
     </div>
@@ -51,9 +53,6 @@
     </div>
     </div>
     <CtaBanner />
-{:else}
-    <p>Service not found.</p>
-{/if}
 
 
 <style>

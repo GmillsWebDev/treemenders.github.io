@@ -1,19 +1,17 @@
 <script>
 	import Button from './Button.svelte';
-	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
     import logo from '$lib/images/branding/logo_med.webp';
 	let menuOpen = false;
-	let currentPath = '/';
 
-	// Optional: Use SvelteKit's $page.url.pathname if available
-	onMount(() => {
-		currentPath = window.location.pathname;
-	});
+	// Home only matches exactly; other links also match their sub-pages (e.g. /services/tree-felling/)
+	$: isActive = (/** @type {string} */ href) =>
+		href === '/' ? $page.url.pathname === '/' : $page.url.pathname.startsWith(href);
 
 	const links = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Services', href: '/services' },
-		{ name: 'Contact', href: '/contact' }
+		{ name: 'Services', href: '/services/' },
+		{ name: 'Contact', href: '/contact/' }
 	];
 
 	function toggleMenu() {
@@ -23,21 +21,18 @@
 
 <nav class="navbar">
 	<div class="navbarContainer container">
-		<div class="navbar__logo"><img src="{logo}" alt="Treemenders logo"></div>
+		<a class="navbar__logo" href="/"><img src="{logo}" alt="Treemenders logo – home"></a>
 		<div class="navbar__links {menuOpen ? 'active' : ''}">
 			{#each links as link}
 				<a
-					class="navbar__link {currentPath === link.href ? 'active' : ''}"
+					class="navbar__link {isActive(link.href) ? 'active' : ''}"
 					href={link.href}
-					on:click={() => {
-						menuOpen = false;
-						currentPath = link.href;
-					}}
+					on:click={() => (menuOpen = false)}
 				>
 					{link.name}
 				</a>
 			{/each}
-			<Button variant="primary" content="Get a quote" linkUrl="/contact" />
+			<Button variant="primary" content="Get a quote" linkUrl="/contact/" />
 		</div>
 		<div
 			class="hamburger"
