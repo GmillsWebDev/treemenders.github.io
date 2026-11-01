@@ -12,6 +12,9 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^(.*)$ https://treemendersarb.co.uk/$1 [R=301,L]
 
+# Hide the deploy tool's state file (written to the server by the GitHub Actions FTP deploy)
+RewriteRule ^\.ftp-deploy-sync-state\.json$ - [F,L]
+
 # No directory listings
 Options -Indexes
 
