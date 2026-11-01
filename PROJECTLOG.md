@@ -47,6 +47,7 @@ Running record of work on the Treemenders site and what's still outstanding. New
 - [ ] Expect GA visitor numbers to drop after launch: people who reject or ignore the banner aren't counted.
 - [ ] Google Search Console: resubmit `https://treemendersarb.co.uk/sitemap.xml` (6 service pages were previously missing).
 - [ ] Google Business Profile: check name ("Treemenders Arboriculture"), phone and website match `site.js` exactly.
+- [ ] Security headers: check https://securityheaders.com/?q=treemendersarb.co.uk (expect HSTS, nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy). If the host ignores `mod_headers`, the headers just won't appear; nothing breaks.
 - [ ] Phone check: 404 page and cookie banner below 450px width (couldn't be screenshotted narrower than 500px).
 
 ### Clean-up (once the new photos are signed off)
@@ -58,6 +59,7 @@ Running record of work on the Treemenders site and what's still outstanding. New
 - [ ] **Track phone and email clicks in GA:** the site's main conversions, currently untracked. Small change in `consent.js` + the contact links.
 - [ ] **Update build dependencies.** `npm audit` shows 0 vulnerabilities in what ships to visitors; all advisories are in build tools (Vite, sharp, Rollup…). Do it as its own session and compare before/after builds, since sharp now does all image processing.
 - [ ] **Fix lint:** existing before today. Prettier flags 28 files, ESLint 18 errors. Run `npm run format` as its own commit so it doesn't bury real changes, then fix the remaining ESLint errors.
+- [ ] Optional: full Content-Security-Policy. Start as `Content-Security-Policy-Report-Only` and allow-list Font Awesome, GA, Contentsquare and Google Maps before enforcing.
 - [ ] Optional: SVG favicon (needs an SVG of the leaf logo; the old `favicon.svg` was the Svelte logo and was removed).
 - [ ] Optional: per-page hero banners using client photos (`Hero.svelte` already accepts a `bannerBg` prop).
 - [ ] Optional: share images for WebP-sourced photos fall back to PNG (some over 1 MB). Resolves itself as stock WebPs are replaced by client JPGs.
@@ -66,6 +68,15 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 - Location pages (e.g. "Tree Surgeon in Bognor Regis"): risk of doorway-page penalties; revisit once the core site is solid.
 - `llms.txt`: unproven benefit; left out for now.
+
+---
+
+## 1 November 2026 (later): basic security check
+
+- `npm audit`: 0 vulnerabilities (shipped and dev dependencies). No secrets in the repo or its history; no source maps or stray files in `build/`; all 211 built images have no EXIF/GPS metadata.
+- Reviews now render as plain text instead of `{@html}` (they're third-party text pasted by hand).
+- Site-wide LocalBusiness JSON-LD now escapes `<`, the same as `Seo.svelte`.
+- `.htaccess`: `Options -Indexes` and security headers (HSTS 1 year without includeSubDomains, nosniff, X-Frame-Options/frame-ancestors, Referrer-Policy, Permissions-Policy). No full CSP yet.
 
 ---
 

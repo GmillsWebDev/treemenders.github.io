@@ -32,7 +32,7 @@
         sameAs: business.sameAs
     };
 
-    const ldScript = `<script type="application/ld+json">${JSON.stringify(localBusiness)}</` + 'script>';
+    const ldScript = `<script type="application/ld+json">${JSON.stringify(localBusiness).replace(/</g, '\\u003c')}</` + 'script>';
 </script>
 
 <svelte:head>

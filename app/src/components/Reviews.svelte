@@ -104,7 +104,7 @@
                         <img class="quote" src={quotes} alt="" />
                         <blockquote>
                             {#each review.text.split(/\n\s*\n/) as paragraph, p (p)}
-                                <p>{@html paragraph}</p>
+                                <p>{paragraph}</p>
                             {/each}
                         </blockquote>
                         <figcaption>
