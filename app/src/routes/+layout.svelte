@@ -1,7 +1,10 @@
 <script>
+    import '@fontsource-variable/cinzel';
+    import '@fontsource-variable/reddit-sans';
     import '../styles/app.css';
     import Nav from "../components/Nav.svelte";
     import Footer from "../components/Footer.svelte";
+    import CookieConsent from "../components/CookieConsent.svelte";
     import { SITE_URL, business, absoluteUrl } from '$lib/site.js';
     import logo from '$lib/images/branding/logo_med.webp';
     import shareImg from '$lib/images/images/banner_1.webp?w=1200&h=630&fit=cover&format=jpg';
@@ -46,3 +49,5 @@
 
 <!-- footer -->
  <Footer />
+
+<CookieConsent />

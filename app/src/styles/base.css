@@ -14,9 +14,9 @@
     --colour-dark-grey:#8d8d8d;
 
     /* Fonts */
-    --font-heading:"Cinzel", serif;
-    --font-accent:"Tinos", serif;
-    --font-body:"Reddit Sans", sans-serif;
+    /* Self-hosted variable fonts (@fontsource-variable, imported in +layout.svelte) */
+    --font-heading:"Cinzel Variable", serif;
+    --font-body:"Reddit Sans Variable", sans-serif;
 
     /* Viewports */
     --viewport-small:"450px";

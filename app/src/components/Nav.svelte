@@ -58,7 +58,8 @@
 		padding: 1rem 0;
 		background-color: var(--colour-white);
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-		width: 100vw;
+		/* 100% not 100vw: 100vw includes the scrollbar on Windows and causes sideways scrolling */
+		width: 100%;
 		position: relative;
 		z-index: 10;
 	}

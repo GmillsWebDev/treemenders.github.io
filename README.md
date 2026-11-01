@@ -110,6 +110,8 @@ Upload the contents of `app/build/` to the web host's `public_html`. Every route
 
 The build includes a hidden `.htaccess` file (from `app/static/.htaccess`) that tells the server to show the custom 404 page (`404.html`). Make sure your upload method includes dotfiles. Any server rules (redirects etc.) belong in `app/static/.htaccess`, because the uploaded copy replaces whatever is on the server.
 
-## Analytics
+## Analytics, cookies & privacy
 
-Google Analytics 4 and Contentsquare are loaded from `app/src/app.html`.
+Google Analytics 4, Contentsquare and the Google Map on the contact page only load after the visitor accepts them in the cookie banner (`app/src/components/CookieConsent.svelte`, logic in `app/src/lib/consent.js`). Visitors can change their choice via **Cookie settings** in the footer. Analytics never runs on localhost.
+
+If you add or remove any tracking or third-party service, update `/cookie-policy/` and `/privacy-policy/` (`app/src/routes/`) and bump `CONSENT_VERSION` in `consent.js` so everyone is asked again.

@@ -3,6 +3,7 @@
     const currentYear = new Date().getFullYear();
 
     import logo from '$lib/images/branding/logo_med.webp'
+    import { openCookieSettings } from '$lib/consent.js';
 </script>
 
 <footer>
@@ -11,12 +12,17 @@
         <div class="logo">
             <img src={logo} alt="Treemenders Arboriculture logo">
             <div class="socials">
-            <a href="https://www.facebook.com/people/Treemenders-Arboriculture/61575724665977/" target="_blank" aria-label="facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/treemenders_arboriculture" target="_blank" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/people/Treemenders-Arboriculture/61575724665977/" target="_blank" rel="noopener" aria-label="facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/treemenders_arboriculture" target="_blank" rel="noopener" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
         </div>
         <div>
             <p>Treemenders provides expert tree surgery, garden maintenance, and landscaping support across Chichester, West Sussex, and surrounding areas. From crown reduction and hedge trimming to stump removal and fencing, we help homeowners create safer, greener, and more beautiful outdoor spaces. With a friendly team, professional equipment and a passion for nature, we’re proud to offer reliable, customer-focused service you can trust, season after season.</p>
+            <nav class="legal" aria-label="Legal">
+                <a href="/privacy-policy/">Privacy policy</a>
+                <a href="/cookie-policy/">Cookie policy</a>
+                <button type="button" on:click={openCookieSettings}>Cookie settings</button>
+            </nav>
             <p class="copy">&copy; {currentYear} Treemenders Arboriculture. All rights reserved.</p>
         </div>
     </div>
@@ -72,6 +78,28 @@
                     font-size: 1.5rem;
                 }
             }
+            .legal {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 0.5rem 1.5rem;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                a, button {
+                    color: var(--colour-black);
+                    text-decoration: underline;
+                }
+                button {
+                    font: inherit;
+                    background: none;
+                    border: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    &:hover {
+                        color: var(--colour-secondary);
+                    }
+                }
+            }
             .copy {
                 text-align: right;
                 margin-top: 1rem;
@@ -93,6 +121,10 @@
 
                 .copy{
                     position: relative;
+                }
+
+                .legal {
+                    justify-content: center;
                 }
 
             }

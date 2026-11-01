@@ -10,6 +10,8 @@ export function GET() {
 		{ path: '/', priority: '1.00' },
 		{ path: '/services/', priority: '0.80' },
 		{ path: '/contact/', priority: '0.80' },
+		{ path: '/privacy-policy/', priority: '0.30' },
+		{ path: '/cookie-policy/', priority: '0.30' },
 		...allServices.map(({ slug }) => ({
 			path: `/services/${slug}/`,
 			priority: '0.80'

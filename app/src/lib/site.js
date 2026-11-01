@@ -6,6 +6,8 @@ export const SITE_URL = 'https://treemendersarb.co.uk';
 export const business = {
 	name: 'Treemenders',
 	legalName: 'Treemenders Arboriculture',
+	// Sole trader: the legal person behind the trading name (named in the privacy policy as data controller)
+	owner: 'Jake Williams',
 	description:
 		'Tree surgery, arboricultural and garden services for homes and businesses across Chichester, West Sussex, East Sussex and Hampshire.',
 	telephone: '+447496340967',

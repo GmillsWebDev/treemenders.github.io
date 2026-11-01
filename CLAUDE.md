@@ -28,8 +28,8 @@ There are no tests. Verify changes with `npm run build` (must succeed, `strict: 
 - SvelteKit 2 + Svelte 5, plain JavaScript (JSDoc via `jsconfig.json`, no TypeScript source)
 - `@sveltejs/adapter-static`, everything prerendered (`prerender = true`, `trailingSlash = 'always'` in `src/routes/+layout.js`)
 - `@sveltejs/enhanced-img` for all photos (AVIF/WebP/fallback at several widths). Small UI images (logo, icons) are plain `<img>`
-- Font Awesome (kit script) for icons, Google Fonts (Cinzel / Reddit Sans / Tinos)
-- Analytics: Google Analytics (`G-9HS1XD1SHH`) and Contentsquare/Hotjar, both inline in `src/app.html`
+- Font Awesome (kit script) for icons. Fonts are self-hosted via `@fontsource-variable/cinzel` and `@fontsource-variable/reddit-sans` (imported in `+layout.svelte`); no Google Fonts
+- Analytics: Google Analytics (`G-9HS1XD1SHH`) and Contentsquare (`6513386`), loaded **only after cookie consent** by `src/lib/consent.js`
 
 ## Code style
 
@@ -42,7 +42,7 @@ There are no tests. Verify changes with `npm run build` (must succeed, `strict: 
 
 ```
 app/src/
-  app.html                 # <head>: favicons, fonts, FA kit, GA + Contentsquare (no title/description here)
+  app.html                 # <head>: favicons, FA kit. No title/description, fonts or analytics here
   routes/
     +layout.js / .svelte   # prerender + trailingSlash; LocalBusiness JSON-LD; Nav / <main> / Footer
     +page.svelte           # Home: Hero, AboutIntro, 3 USP panels, featured service cards (by slug), Review, CtaBanner
@@ -50,9 +50,12 @@ app/src/
     services/[slug]/       # Service detail: Service + BreadcrumbList JSON-LD, related services
     sitemap.xml/+server.js # Sitemap generated at build time
     +error.svelte          # Custom 404 / error page
+    privacy-policy/, cookie-policy/  # Legal pages (LegalPage.svelte wrapper)
     contact/+page.svelte   # Phone/email + embedded Google My Map (no contact form, by design)
-  components/              # Seo, Hero, Card, Button, Nav, Footer, AboutIntro, Review, CtaBanner
-  lib/site.js              # SITE_URL + business details (name, phone, areas, socials) for SEO/structured data
+  components/              # Seo, Hero, Card, Button, Nav, Footer, AboutIntro, Review, CtaBanner,
+                           # CookieConsent (banner), MapEmbed (click-to-load map), LegalPage
+  lib/site.js              # SITE_URL + business details (name, owner, phone, email, areas, socials)
+  lib/consent.js           # Cookie consent store + loading/removing GA & Contentsquare
   lib/scripts/services.js  # ALL service content: `trees`, `gardens`, `specialist`, plus `categories`, `allServices`, `getRelated()`
   lib/scripts/servicesImages.js  # enhanced-img imports -> `servicesImages` map
   lib/images/              # branding/, icons/, images/ (banners, about), services/
@@ -94,6 +97,8 @@ Each entry in `services.js`:
 - `sitemap.xml` is a prerendered endpoint (`src/routes/sitemap.xml/+server.js`) built from `services.js`; there is no file in `static/`.
 - There is intentionally no contact form (client decision); contact is phone/email only. There is no backend, so a form would need a third-party service.
 - **404 page:** `src/routes/+error.svelte`. The adapter's `fallback: '404.html'` emits a client-rendered shell that shows it for any unknown URL; `static/.htaccess` (`ErrorDocument 404 /404.html`) tells the LiteSpeed host (Eco Web Hosting, cPanel) to serve it. That file overwrites the server's `.htaccess` on deploy, so all server rules must live there.
+- **Cookie consent** (`lib/consent.js`): nothing optional loads until the visitor opts in. Categories: `analytics` (GA), `recording` (Contentsquare), `maps` (Google Maps embed via `MapEmbed`). Choice is stored in `localStorage` (`cookieConsent`) for 6 months with a `CONSENT_VERSION`; **bump the version whenever cookies/third parties change** and update `/cookie-policy/` and `/privacy-policy/`. Withdrawing consent deletes the tracker cookies and reloads. Trackers only load on the production hostname, never localhost.
+- Never add third-party scripts or embeds directly to `app.html` or a page; route them through `consent.js` and list them in the cookie policy.
 - `vite.config.js` stops the dev server watching `build/` (rebuilding while `npm run dev` runs otherwise crashes it on Windows with EBUSY).
 
 ## Deployment

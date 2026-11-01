@@ -1,6 +1,7 @@
 <script>
     import Hero from "../../components/Hero.svelte";
     import Seo from "../../components/Seo.svelte";
+    import MapEmbed from "../../components/MapEmbed.svelte";
 </script>
 <Seo
     title="Contact Treemenders | Get a Quote or Ask a Question"
@@ -22,7 +23,11 @@
         </ul>
     </div>
     <div class="map">
-        <iframe title="Google Map" src="https://www.google.com/maps/d/u/0/embed?mid=1USiN1sM5KvBTTz41xFlYNUCutiRk34A&ehbc=2E312F&noprof=1&z=9"></iframe>
+        <MapEmbed
+            title="Map of the areas Treemenders covers"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1USiN1sM5KvBTTz41xFlYNUCutiRk34A&ehbc=2E312F&noprof=1&z=9"
+            viewUrl="https://www.google.com/maps/d/u/0/viewer?mid=1USiN1sM5KvBTTz41xFlYNUCutiRk34A"
+        />
     </div>
 </div>
 
@@ -48,13 +53,6 @@
                 }
             }
         }
-    }
-
-    iframe {
-        width: 100%;
-        height: 400px;
-        border: none;
-        border-radius: 8px;
     }
 
     @media screen and (max-width: 768px) {
