@@ -1,0 +1,31 @@
+# STAGING ONLY. The deploy workflow uses this instead of app/static/.htaccess for release/** branches.
+# __AUTH_USER_FILE__ is replaced with the STAGING_AUTH_USER_FILE variable (see DEPLOYMENT.md).
+
+ErrorDocument 404 /404.html
+
+Options -Indexes
+
+RewriteEngine On
+# HTTPS only (no canonical-host redirect: staging lives on its own subdomain)
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# Hide the deploy tool's state file
+RewriteRule ^\.ftp-deploy-sync-state\.json$ - [F,L]
+
+# Password-protect everything except SSL certificate checks (AutoSSL needs /.well-known/)
+SetEnvIf Request_URI "^/\.well-known/" ssl_check
+AuthType Basic
+AuthName "Treemenders staging"
+AuthUserFile "__AUTH_USER_FILE__"
+<RequireAny>
+	Require env ssl_check
+	Require valid-user
+</RequireAny>
+
+<IfModule mod_headers.c>
+	# Belt and braces with the password: never index staging
+	Header always set X-Robots-Tag "noindex, nofollow"
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>

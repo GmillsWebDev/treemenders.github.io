@@ -31,7 +31,16 @@ Running record of work on the Treemenders site and what's still outstanding. New
   - [x] Align service areas: footer now matches About/contact ("Chichester and West Sussex, and into East Sussex and Hampshire")
   - [ ] Check claims in service copy: "24/7 emergency call-out" (Emergency Tree Work), "years of experience" (Tree Planting, contradicts "young company" in About), "our team" throughout (sole trader?)
   - [ ] Optional: shorten the Tree Planting and Fencing card descriptions to match the others (they are 2–3x longer, so those cards look uneven)
+- [ ] **Scam calls (on hold, waiting on client):** client says the site is attracting scam callers. Phone/email are on the contact page, the 404 page and in the LocalBusiness JSON-LD on **every** page. Proposed: click-to-reveal phone/email (with a GA event per reveal) + remove `telephone`/`email` from the JSON-LD. Suggested to client: TPS registration, a separate business number (VoIP/second SIM), network call filtering, report scams to 7726. The number is also on Google Business Profile/Facebook, so the site may not be the source.
 - [ ] **Professional email:** consider `@treemendersarb.co.uk` (Eco Web Hosting likely includes email) instead of Gmail. If changed, update `site.js` and both policy pages.
+
+### CI/CD (branch `ci/deploy-pipeline`)
+
+- [ ] Follow the one-off setup in `DEPLOYMENT.md`: staging subdomain (outside `public_html`), staging password, two FTP accounts, GitHub environments/secrets.
+- [ ] Test with a `release/test` branch: staging prompts for a password; no 500 from the `<RequireAny>` block.
+- [ ] Decide: required reviewer on the production environment?
+- [ ] Optional: switch the upload to rsync over SSH if the Eco plan includes SSH.
+- [ ] Once lint is fixed, add `npm run lint` to the workflow.
 
 ### Go-live / deployment checklist
 
@@ -68,6 +77,18 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 - Location pages (e.g. "Tree Surgeon in Bognor Regis"): risk of doorway-page penalties; revisit once the core site is solid.
 - `llms.txt`: unproven benefit; left out for now.
+
+---
+
+## 1 November 2026 (later): CI/CD pipeline
+
+Branch `ci/deploy-pipeline`. Not yet run: needs the cPanel/GitHub setup first.
+
+- `.github/workflows/deploy.yml`: PRs build + `svelte-check` + check all service pages were built. Push to `release/**` deploys to staging, push to `main` to production, over FTPS (incremental, via `SamKirkland/FTP-Deploy-Action`). GitHub Environments hold per-site FTP credentials; one deploy per environment at a time; smoke test afterwards.
+- Staging gets its own `.htaccess` (basic auth except `/.well-known/`, `X-Robots-Tag: noindex`, no HSTS/canonical redirect) and a disallow-all `robots.txt` (`deploy/staging/`). Analytics already only load on the production hostname.
+- Production `.htaccess` now blocks the deploy state file.
+- Setup guide: `DEPLOYMENT.md`.
+- Scam-call concern from the client logged under Outstanding (on hold).
 
 ---
 
