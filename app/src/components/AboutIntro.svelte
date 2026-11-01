@@ -5,13 +5,13 @@
 
 <div class="container">
     <div class="img">
-        <enhanced:img src={introImg} alt="Chainsaw cutting a tree" />
+        <enhanced:img src={introImg} alt="A tree surgeon in a climbing harness cutting down a tree trunk in sections with a chainsaw" />
     </div>
     <div class="content">
         <h2>About Treemenders</h2>
-        <p>Welcome to Treemenders, your trusted experts in tree surgery and arboricultural services across Chichester, East Sussex, West Sussex, and Hampshire. We provide professional tree care solutions for both residential and commercial clients, combining technical expertise with a customer-first approach
+        <p>Welcome to Treemenders, your trusted experts in <a href="/services/">tree surgery and arboricultural services</a> across Chichester, East Sussex, West Sussex, and Hampshire. We provide professional tree care solutions for both residential and commercial clients, combining technical expertise with a customer-first approach.
 </p>
-<p>Whether you're a homeowner seeking to enhance your garden or a business in need of reliable grounds maintenance, our team is equipped to handle every aspect of tree and landscape care. From tree felling, pollarding, and hedge trimming to stump grinding, site clearance, and emergency works, we offer a comprehensive range of services tailored to both residential and commercial clients.
+<p>Whether you're a homeowner seeking to enhance your garden or a business in need of reliable grounds maintenance, our team is equipped to handle every aspect of tree and landscape care. From <a href="/services/tree-felling/">tree felling</a>, <a href="/services/pollarding/">pollarding</a>, and <a href="/services/hedge-trimming-shaping/">hedge trimming</a> to <a href="/services/stump-grinding-removal/">stump grinding</a>, <a href="/services/site-clearance/">site clearance</a>, and <a href="/services/emergency-tree-work/">emergency works</a>, we offer a comprehensive range of services tailored to both residential and commercial clients.
 </p>
 <p>Though we're a young company, our modern approach and commitment to excellence have quickly earned us a reputation for reliability and professionalism. At Treemenders, we don’t just maintain landscapes—we help them thrive.</p>
     </div>
@@ -55,6 +55,11 @@
         background: var(--colour-primary);
         color: var(--colour-white);
         border-radius: 4px;
+        a {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
     }
 
     @media screen and (max-width: 1280px){

@@ -39,7 +39,7 @@
 
 <Seo
     title="{service.title} | Treemenders – Chichester & West Sussex"
-    description="{service.description} Serving Chichester and West Sussex."
+    description={service.metaDescription ?? `${service.description} Serving Chichester and West Sussex.`}
     image={service.image.img.src}
     imageAlt={service.alt}
     {jsonLd}
@@ -134,6 +134,14 @@
             justify-content: center;
             display: flex;
             flex-direction: column;
+            /* inline links inside the {@html} longDesc (not the Button) */
+            :global(p a) {
+                color: var(--colour-primary);
+                text-decoration: underline;
+                &:hover {
+                    color: var(--colour-secondary);
+                }
+            }
         }
     }
 

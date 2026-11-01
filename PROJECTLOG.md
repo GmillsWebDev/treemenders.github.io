@@ -28,7 +28,9 @@ Running record of work on the Treemenders site and what's still outstanding. New
 - [ ] **FAQ section** (good for SEO/AI search): client to answer common questions on TPOs and conservation areas, rough pricing, waste removal, insurance and qualifications.
 - [ ] **Copy pass** (body content was deliberately left untouched):
   - [ ] Add concrete facts: specific towns covered, qualifications, years of experience
-  - [ ] Align service areas: the About section says "East Sussex, West Sussex, and Hampshire", the footer says "Chichester, West Sussex, and surrounding areas"
+  - [x] Align service areas: footer now matches About/contact ("Chichester and West Sussex, and into East Sussex and Hampshire")
+  - [ ] Check claims in service copy: "24/7 emergency call-out" (Emergency Tree Work), "years of experience" (Tree Planting, contradicts "young company" in About), "our team" throughout (sole trader?)
+  - [ ] Optional: shorten the Tree Planting and Fencing card descriptions to match the others (they are 2–3x longer, so those cards look uneven)
 - [ ] **Professional email:** consider `@treemendersarb.co.uk` (Eco Web Hosting likely includes email) instead of Gmail. If changed, update `site.js` and both policy pages.
 
 ### Go-live / deployment checklist
@@ -64,6 +66,18 @@ Running record of work on the Treemenders site and what's still outstanding. New
 
 - Location pages (e.g. "Tree Surgeon in Bognor Regis"): risk of doorway-page penalties; revisit once the core site is solid.
 - `llms.txt`: unproven benefit; left out for now.
+
+---
+
+## 1 November 2026 (later): body-content SEO pass
+
+Light-touch, wording left as it was apart from the fixes below.
+
+- Hand-written meta descriptions (`metaDescription` in `services.js`) for all 17 service pages: location-led, 140–160 chars. Previously the short card text + "Serving Chichester and West Sussex." (some under 100 chars, Tree Planting/Fencing over 200).
+- Contextual internal links in existing copy: About section (services page + 6 services), footer (4 services), Stump Grinding → Tree Felling, Site Clearance → Stump Grinding, Commercial → Hedge Trimming and Tree Surveys.
+- Alt text rewritten where it was wrong or empty of meaning: Tree Surveys ("Tree Survey"), Commercial Grounds Maintenance ("Tree Removal"), Tree Planting, Stump Grinding, About image.
+- Footer service area aligned with About/contact/structured data.
+- Spelling: "leveling" → "levelling", "curb appeal" → "kerb appeal"; missing full stop in About.
 
 ---
 

@@ -71,7 +71,8 @@ Each entry in `services.js`:
 
 ```js
 {
-  title, slug, description, image, alt,
+  title, slug, description /* short card text */, image, alt,
+  metaDescription, // optional 140–160 char meta description for the service page; falls back to description + location
   imageFocus,  // optional CSS object-position for cropped frames, e.g. 'center 30%'
   pageContent: { bannerTitle, bannerTag, longDesc /* HTML string */, what: [{id, content}], why: [{id, content}] }
 }

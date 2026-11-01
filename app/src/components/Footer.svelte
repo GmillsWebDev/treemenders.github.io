@@ -17,7 +17,7 @@
         </div>
         </div>
         <div>
-            <p>Treemenders provides expert tree surgery, garden maintenance, and landscaping support across Chichester, West Sussex, and surrounding areas. From crown reduction and hedge trimming to stump removal and fencing, we help homeowners create safer, greener, and more beautiful outdoor spaces. With a friendly team, professional equipment and a passion for nature, we’re proud to offer reliable, customer-focused service you can trust, season after season.</p>
+            <p class="about">Treemenders provides expert tree surgery, garden maintenance, and landscaping support across Chichester and West Sussex, and into East Sussex and Hampshire. From <a href="/services/crown-reduction/">crown reduction</a> and <a href="/services/hedge-trimming-shaping/">hedge trimming</a> to <a href="/services/stump-grinding-removal/">stump removal</a> and <a href="/services/fencing/">fencing</a>, we help homeowners create safer, greener, and more beautiful outdoor spaces. With a friendly team, professional equipment and a passion for nature, we’re proud to offer reliable, customer-focused service you can trust, season after season.</p>
             <nav class="legal" aria-label="Legal">
                 <a href="/privacy-policy/">Privacy policy</a>
                 <a href="/cookie-policy/">Cookie policy</a>
@@ -77,6 +77,9 @@
                 a{
                     font-size: 1.5rem;
                 }
+            }
+            .about a {
+                text-decoration: underline;
             }
             .legal {
                 display: flex;

@@ -4,7 +4,8 @@ import { servicesImages } from '$lib/scripts/servicesImages.js';
  * @typedef {object} Service
  * @property {string} title
  * @property {string} slug
- * @property {string} description
+ * @property {string} description Short card text
+ * @property {string} [metaDescription] Meta description for the service page (aim for 140-160 chars); falls back to description
  * @property {import('vite-imagetools').Picture} image
  * @property {string} alt
  * @property {string} [imageFocus] CSS object-position for cropped frames, e.g. 'center 30%'
@@ -17,6 +18,7 @@ export const trees = [
 		title: 'Tree Felling',
 		slug: 'tree-felling',
 		description: 'Safe and efficient removal of trees, including those in confined spaces.',
+		metaDescription: "Safe, controlled tree felling and removal in Chichester and across West Sussex, from small garden trees to larger, complex fells. Honest advice, free quotes.",
 		image: servicesImages.treeFelling,
 		alt: 'Sections of a felled tree trunk cut into rounds and laid out in a back garden after removal.',
 		pageContent: {
@@ -70,6 +72,7 @@ export const trees = [
 		title: 'Pollarding',
 		slug: 'pollarding',
 		description: 'Controlling tree size and shape for health and aesthetics.',
+		metaDescription: "Pollarding in Chichester and West Sussex to keep trees compact, healthy and in proportion with your garden. Every tree assessed first and cut at the right time.",
 		image: servicesImages.pollarding,
 		alt: 'A mature garden tree freshly pollarded back to its main limbs.',
 		imageFocus: 'center 30%',
@@ -125,6 +128,7 @@ export const trees = [
 		title: 'Crown Reduction',
 		slug: 'crown-reduction',
 		description: 'Reducing the height and spread of the tree canopy.',
+		metaDescription: "Crown reduction in Chichester and West Sussex: reduce a tree's height and spread to protect your roof and let in light, while keeping its natural shape.",
 		image: servicesImages.crownReduction,
 		alt: 'A worker wearing safety gear trims a tree branch with a chainsaw while standing on a large branch.',
 		pageContent: {
@@ -179,6 +183,7 @@ export const trees = [
 		title: "Crown Thinning",
     slug: "crown-thinning",
     description: "Removing select branches to improve light penetration and airflow.",
+    metaDescription: "Crown thinning in Chichester and West Sussex to let more light into your garden, improve airflow and reduce wind load, without changing the tree's size.",
     image: servicesImages.crownThinning,
     alt: 'A tall garden tree with a light, airy crown above a hedge and driveway in front of a brick house.',
     imageFocus: 'center 20%',
@@ -235,6 +240,7 @@ export const trees = [
 		title: "Crown Lifting",
     slug: "crown-lifting",
     description: "Raising the lower branches for clearance and visibility.",
+    metaDescription: "Crown lifting in Chichester and West Sussex: we raise low branches to clear driveways, paths and lawns and let in light, keeping the tree's natural shape.",
     image: servicesImages.crownLifting,
     alt: 'A mature weeping willow in a cleared back garden under a clear blue sky.',
     imageFocus: 'center 55%',
@@ -290,6 +296,7 @@ export const trees = [
 		title: "Tree Pruning & Shaping",
     slug: "tree-pruning-shaping",
     description: "Enhancing tree structure and appearance.",
+    metaDescription: "Tree pruning and shaping in Chichester and West Sussex for fruit and ornamental trees: healthier growth, better form and weak or crossing branches removed.",
     image: servicesImages.treePruning,
     alt: "Operative using a manual tree saw to cut back a smaller branch from a tree.",
     pageContent: {
@@ -344,8 +351,9 @@ export const trees = [
 		title: 'Tree Planting',
     slug: 'tree-planting',
     description: 'Expert tree planting for gardens and landscapes. We select, position, and plant trees that thrive—adding beauty, shade, and biodiversity to your outdoor space.',
+    metaDescription: "Tree planting in Chichester and West Sussex, from species advice to planting and aftercare. Native and ornamental trees chosen to suit your soil and space.",
     image: servicesImages.treePlanting,
-    alt: 'A new planted. the person planting it is wearing yellow gardening gloves.',
+    alt: 'Gloved hands planting a young sapling in freshly dug soil.',
     pageContent: {
         bannerTitle: 'Tree Planting & Landscape Enhancement',
         bannerTag: 'Grow something lasting—beautiful trees planted with care and expertise.',
@@ -398,6 +406,7 @@ export const trees = [
 		title: 'Deadwood Removal',
     slug: 'deadwood-removal',
     description: 'Eliminating hazardous or decaying branches.',
+    metaDescription: "Deadwood removal in Chichester and West Sussex. We safely clear dead, dying and damaged branches before they fall, keeping your tree healthy and safe.",
     image: servicesImages.deadwoodRemoval,
     alt: 'Hollow, decayed sections of a removed tree trunk beside its stump, showing internal rot.',
     imageFocus: 'center 35%',
@@ -457,6 +466,7 @@ export const gardens = [
 		title: 'Hedge Trimming & Shaping',
     slug: 'hedge-trimming-shaping',
     description: 'Regular maintenance and decorative shaping.',
+    metaDescription: "Hedge trimming and shaping in Chichester and West Sussex, from light maintenance trims to full reshaping of formal and boundary hedges. Free quotes.",
     image: servicesImages.hedgeTrimming,
     alt: 'A long, neatly trimmed evergreen hedge running alongside a residential footpath.',
     imageFocus: 'center 40%',
@@ -512,6 +522,7 @@ export const gardens = [
 		title: 'Shrub & Topiary Care',
     slug: 'shrub-topiary-care',
     description: 'Precision trimming for ornamental plants.',
+    metaDescription: "Shrub pruning and topiary care in Chichester and West Sussex. Seasonal pruning and careful shaping to keep your shrubs healthy, tidy and flowering.",
     image: servicesImages.topiary,
     alt: 'A neatly clipped hedge planted above a timber sleeper retaining wall.',
     pageContent: {
@@ -566,6 +577,7 @@ export const gardens = [
 		title: 'Garden Clearance',
     slug: 'garden-clearance',
     description: 'Removing overgrowth, debris, and unwanted vegetation.',
+    metaDescription: "Garden clearance in Chichester and West Sussex: overgrowth, brambles and green waste cleared and disposed of responsibly, leaving you a blank canvas.",
     image: servicesImages.gardenClearance,
     alt: 'A front garden bed cleared back to bare soil, with block-paved edging and a trimmed hedge left in place.',
     imageFocus: 'center 60%',
@@ -590,7 +602,7 @@ export const gardens = [
             },
             {
                 id: 4,
-                content: "Site leveling and final clean-up"
+                content: "Site levelling and final clean-up"
             },
             {
                 id: 5,
@@ -621,12 +633,13 @@ export const gardens = [
 		title: 'Stump Grinding & Removal',
     slug: 'stump-grinding-removal',
     description: 'Eliminating stumps below ground level for replanting or landscaping.',
+    metaDescription: "Stump grinding in Chichester and West Sussex. We grind tree stumps below ground level so they won't regrow, leaving your garden level and ready to use.",
     image: servicesImages.stumpGrinding,
-    alt: 'A large piece of machinery grinding a tree stump. the area is covered with sawdust.',
+    alt: 'A stump grinder working a tree stump down below ground level, surrounded by wood chippings.',
     pageContent: {
         bannerTitle: 'Stump Grinding & Removal',
         bannerTag: 'Say goodbye to unsightly stumps and reclaim your garden.',
-        longDesc: `<p>Tree gone but the stump still hanging around? We can take care of that. Stump grinding is the quickest and cleanest way to remove what’s left behind after a tree’s been felled, leaving your garden smooth, safe, and ready for whatever comes next.</p>
+        longDesc: `<p>Tree gone but the stump still hanging around? We can take care of that. Stump grinding is the quickest and cleanest way to remove what’s left behind after a tree’s been <a href="/services/tree-felling/">felled</a>, leaving your garden smooth, safe, and ready for whatever comes next.</p>
         <p>Old stumps can be a tripping hazard, attract pests, or simply get in the way of planting and landscaping. Our team uses specialist equipment to grind the stump down below ground level, making sure it’s properly dealt with and won’t regrow.</p>
         <p>Whether it’s a single stump or several, we’ll work efficiently and leave your space neat and usable. No more eyesores—just a clean finish and a garden that feels complete.</p>`,
         what: [
@@ -674,7 +687,8 @@ export const gardens = [
 	{
 		title: 'Fencing',
     slug: 'fencing',
-    description: 'Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and curb appeal.',
+    description: 'Secure, stylish fencing tailored to your garden. From classic panels to decorative designs, we install durable boundaries that enhance privacy and kerb appeal.',
+    metaDescription: "Garden fencing in Chichester and West Sussex: closeboard, panel and picket fences, gate fitting and old fence removal, built to last. Free quotes.",
     image: servicesImages.fencing,
     alt: 'New timber picket fencing enclosing the front garden of a terraced house.',
     pageContent: {
@@ -733,6 +747,7 @@ export const specialist = [
 		title: 'Emergency Tree Work',
     slug: 'emergency-tree-work',
     description: 'Rapid response for storm damage or hazardous trees.',
+    metaDescription: "Emergency tree work in Chichester and West Sussex. A fast, safe response to storm damage, fallen trees and dangerous limbs to protect your home and property.",
     image: servicesImages.emergencyWorks,
     alt: 'A tree surgeon halfway up a tree, held in place by a harness.',
     pageContent: {
@@ -787,8 +802,9 @@ export const specialist = [
 		title: 'Tree Surveys',
     slug: 'tree-surveys',
     description: 'Arboricultural assessments for planning applications or safety checks.',
+    metaDescription: "Tree surveys in Chichester and West Sussex for planning applications, property purchases and safety checks, with clear, jargon-free written reports.",
     image: servicesImages.treeSurvey,
-    alt: 'Tree Survey',
+    alt: 'An arborist in a high-visibility vest recording a tree survey on a tablet outside a house.',
     pageContent: {
         bannerTitle: 'Professional Tree Surveys & Reports',
         bannerTag: 'Insightful assessments to guide your tree decisions.',
@@ -841,13 +857,14 @@ export const specialist = [
 		title: 'Site Clearance',
     slug: 'site-clearance',
     description: 'Preparing land for construction or landscaping.',
+    metaDescription: "Site clearance in Chichester and West Sussex for developers and landowners: tree, stump and vegetation removal to get your land ready for the next phase.",
     image: servicesImages.siteClearance,
     alt: 'A cleared, overgrown bank along a metal palisade fence beside a commercial building.',
     pageContent: {
         bannerTitle: 'Site Clearance for Development & Construction',
         bannerTag: 'Prepare your land for success with comprehensive clearance.',
         longDesc: `<p>Preparing a site for development takes more than just removing a few trees—it requires careful planning, efficient execution, and a clear understanding of the land. Our site clearance service is designed for developers, contractors, and landowners who need a clean, safe starting point for construction or landscaping projects.</p>
-        <p>We handle everything from tree and vegetation removal to stump grinding and debris clearance, always working to your schedule and site requirements. Whether it’s a small plot or a larger commercial space, we’ll ensure the area is cleared responsibly and ready for the next phase.</p>
+        <p>We handle everything from tree and vegetation removal to <a href="/services/stump-grinding-removal/">stump grinding</a> and debris clearance, always working to your schedule and site requirements. Whether it’s a small plot or a larger commercial space, we’ll ensure the area is cleared responsibly and ready for the next phase.</p>
         <p>Our team is experienced in working alongside other trades, managing access, and meeting environmental considerations. We’re here to make your project run smoother from day one.</p>`,
         what: [
             {
@@ -895,13 +912,14 @@ export const specialist = [
 		title: 'Commercial Grounds Maintenance',
     slug: 'commercial-grounds-maintenance',
     description: 'Ongoing care for business parks, schools, estates, etc.',
+    metaDescription: "Commercial grounds maintenance in Chichester and West Sussex for schools, business parks and estates. Hedges, lawns and trees kept tidy all year round.",
     image: servicesImages.commercialMaintenance,
-    alt: 'Tree Removal',
+    alt: 'A tractor with a wood chipper on a cleared woodland site, beside a pile of fresh wood chip.',
     pageContent: {
         bannerTitle: 'Commercial Grounds Maintenance & Care',
         bannerTag: 'Keeping your business grounds polished and inviting year-round.',
         longDesc: `<p>First impressions matter—and a well-maintained outdoor space can make all the difference for your business or property. Our commercial grounds maintenance service keeps your green areas looking professional, tidy, and inviting all year round.</p>
-        <p>We offer tailored maintenance plans for schools, business parks, estates, and other commercial sites, covering everything from regular hedge trimming and lawn care to tree inspections and seasonal clean-ups. Whether you need weekly visits or occasional support, we’ll work around your schedule to keep things running smoothly.</p>
+        <p>We offer tailored maintenance plans for schools, business parks, estates, and other commercial sites, covering everything from regular <a href="/services/hedge-trimming-shaping/">hedge trimming</a> and lawn care to <a href="/services/tree-surveys/">tree inspections</a> and seasonal clean-ups. Whether you need weekly visits or occasional support, we’ll work around your schedule to keep things running smoothly.</p>
         <p>Our team is reliable, discreet, and committed to high standards—so your grounds reflect the quality of what happens inside.</p>`,
         what: [
             {
