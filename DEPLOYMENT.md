@@ -19,29 +19,39 @@ After uploading, the workflow runs a smoke test: production must return 200 for 
 
 ## One-off setup
 
-### 1. cPanel: staging subdomain
+Eco Web Hosting uses **DirectAdmin** (not cPanel). Each domain lives in its own folder:
 
-1. **Domains → Create A New Domain**: `staging.treemendersarb.co.uk`. Untick "Share document root" and set the document root **outside `public_html`**, e.g. `/home/<cpanel-user>/staging.treemendersarb.co.uk`.
-   (Inside `public_html` it would inherit production's `.htaccess` rules, and could be wiped by a production deploy.)
-2. **SSL/TLS Status → Run AutoSSL** and check the subdomain gets a certificate.
+```
+/home/<user>/domains/
+  treemendersarb.co.uk/public_html           <- production document root
+  staging.treemendersarb.co.uk/public_html   <- staging document root
+```
 
-### 2. cPanel: staging password
+`<user>` is your DirectAdmin username (shown at the top of DirectAdmin and in File Manager paths).
 
-1. **Directory Privacy** → open the staging folder → tick "Password protect this directory", name it `Treemenders staging`, save, then create a user (this is what you'll give the client to view staging).
-2. cPanel writes a `.htaccess` into the folder containing a line like
-   `AuthUserFile "/home/<cpanel-user>/.htpasswds/staging.treemendersarb.co.uk/passwd"`.
-   Copy that path (open the file in File Manager, with "Show hidden files" on). You'll need it in step 4. The deploy replaces that `.htaccess` with `deploy/staging/.htaccess`, but the password file it points to stays put.
+### 1. DirectAdmin: staging domain
 
-### 3. cPanel: FTP accounts (one per site, each locked to its folder)
+1. Add `staging.treemendersarb.co.uk` as its own domain (or subdomain with its own folder), so it gets `domains/staging.treemendersarb.co.uk/public_html`. Staging stays separate from production's files and `.htaccess`.
+2. **Domain Setup → staging.treemendersarb.co.uk → Private HTML → "Use a symbolic link from private_html to public_html".** DirectAdmin serves HTTPS from `private_html`; without the link, `https://staging…` shows an empty folder (403) even after a successful deploy. (Production already has this link.)
+3. **SSL Certificates** for the staging domain: issue a free Let's Encrypt certificate if it doesn't already have one.
 
-**FTP Accounts → Add FTP Account**, twice:
+### 2. DirectAdmin: staging password
+
+1. **Password Protected Directories** → protect `domains/staging.treemendersarb.co.uk/public_html` with a prompt like `Treemenders staging`, and add a user (this is what you'll give the client to view staging).
+2. DirectAdmin keeps the password file at
+   `/home/<user>/domains/staging.treemendersarb.co.uk/.htpasswd/public_html/.htpasswd`
+   and writes an `AuthUserFile` line with that path into `staging…/public_html/.htaccess`. Open that `.htaccess` in File Manager (hidden files on) and copy the path exactly. You'll need it in step 4. The deploy replaces that `.htaccess` with `deploy/staging/.htaccess`, but the password file it points to stays put.
+
+### 3. DirectAdmin: FTP accounts (one per site, each locked to its folder)
+
+**FTP Management → Create FTP account**, once per domain, choosing a **custom** directory set to the `public_html` folder. The "Domain" option starts in `domains/<domain>/`, one level above the site, and the deploy would upload to the wrong place.
 
 | Account | Directory |
 | --- | --- |
-| `deploy-prod@treemendersarb.co.uk` | `public_html` |
-| `deploy-staging@treemendersarb.co.uk` | the staging document root from step 1 |
+| `deploy-prod@treemendersarb.co.uk` | `/home/<user>/domains/treemendersarb.co.uk/public_html` |
+| `deploy-staging@staging.treemendersarb.co.uk` | `/home/<user>/domains/staging.treemendersarb.co.uk/public_html` |
 
-Use long generated passwords. The FTP hostname is the website domain, `treemendersarb.co.uk` ([Eco's FTP guide](https://help.ecowebhosting.co.uk/file-database-management/connecting-to-your-hosting-account-via-ftp)).
+Use long generated passwords. Use the full FTP username DirectAdmin shows (including the `@domain` part) in `FTP_USERNAME`. The FTP hostname is the website domain, `treemendersarb.co.uk` ([Eco's FTP guide](https://help.ecowebhosting.co.uk/file-database-management/connecting-to-your-hosting-account-via-ftp)).
 
 FTPS checks the server's certificate matches that hostname. If the first deploy fails with a certificate/TLS error, the FTP port is presenting the shared server's certificate instead. Find the name it's issued for and use that as `FTP_SERVER`:
 
@@ -76,7 +86,7 @@ Settings → Branches → add a rule for `main`: require a pull request and the 
 ### 6. First runs
 
 1. Push a `release/test` branch. Check the Actions tab, then visit staging: you should get a password prompt, and `curl -I https://staging.treemendersarb.co.uk/robots.txt` (with credentials) should show `X-Robots-Tag: noindex`.
-   If staging returns **500**, the server doesn't accept the `<RequireAny>` block in `deploy/staging/.htaccess`: replace that block with a plain `Require valid-user` (AutoSSL renewals on staging may then fail; re-run AutoSSL manually if the certificate lapses).
+   If staging returns **500**, the server doesn't accept the `<RequireAny>` block in `deploy/staging/.htaccess`: replace that block with a plain `Require valid-user` (Let's Encrypt renewals on staging may then fail; reissue the certificate in DirectAdmin if it lapses).
 2. Merge to `main`. The first production deploy uploads every file (there's no state file yet); later ones only upload changes.
 3. Run through the go-live checks in `PROJECTLOG.md`.
 
