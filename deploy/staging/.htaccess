@@ -13,7 +13,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 # Hide the deploy tool's state file
 RewriteRule ^\.ftp-deploy-sync-state\.json$ - [F,L]
 
-# Password-protect everything except SSL certificate checks (AutoSSL needs /.well-known/)
+# Password-protect everything except SSL certificate checks (Let's Encrypt renewals need /.well-known/)
 SetEnvIf Request_URI "^/\.well-known/" ssl_check
 AuthType Basic
 AuthName "Treemenders staging"
