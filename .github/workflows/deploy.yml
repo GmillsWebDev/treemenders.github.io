@@ -97,7 +97,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          security: strict
+          # Encrypted, but the certificate isn't verified: Eco's FTP server (oceanus.hostns.io) sends an
+          # incomplete chain ending at the new Let's Encrypt "Root YE", which runners can't verify.
+          # Switch back to strict (or to SFTP with a pinned host key) once that's resolved. See DEPLOYMENT.md.
+          security: loose
           local-dir: ./build/
           # FTP accounts are locked to the site folder, so upload to the account's root
           server-dir: ./

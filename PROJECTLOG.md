@@ -39,7 +39,7 @@ Running record of work on the Treemenders site and what's still outstanding. New
 - [ ] Follow the one-off setup in `DEPLOYMENT.md` (Eco uses DirectAdmin): staging domain + private_html symlink, staging password, two FTP accounts locked to each `public_html`, GitHub environments/secrets/variables.
 - [ ] Test with a `release/test` branch: staging prompts for a password; no 500 from the `<RequireAny>` block.
 - [ ] Decide: required reviewer on the production environment?
-- [ ] Optional: switch the upload to rsync over SSH if the Eco plan includes SSH.
+- [ ] **FTP certificate:** deploys use `security: loose` (encrypted, but unverified) because Eco's FTP server sends an incomplete chain to the new Let's Encrypt Root YE. Ask Eco: (1) does the plan include SSH/SFTP (best fix: SFTP with pinned host key), (2) can they serve the full chain on FTP. Re-check command in `DEPLOYMENT.md` step 3.
 - [ ] Once lint is fixed, add `npm run lint` to the workflow.
 
 ### Go-live / deployment checklist
