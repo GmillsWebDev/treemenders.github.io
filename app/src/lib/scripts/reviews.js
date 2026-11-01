@@ -25,21 +25,27 @@ export const googleSummary = {
 export const reviews = [
 	// PLACEHOLDERS: replace with the real Google reviews
 	{
-		name: 'PLACEHOLDER A.',
-		date: '2026-10',
-		rating: 5,
-		text: 'Placeholder review text. Replace with the first real Google review, copied word for word.'
-	},
-	{
-		name: 'PLACEHOLDER B.',
-		date: '2026-09',
-		rating: 5,
-		text: 'A second, longer placeholder so the carousel can be checked with reviews of different lengths. Real reviews vary a lot in length, and the card is sized to fit the longest one so the page does not jump as they rotate.\n\nIt can also have a second paragraph.'
-	},
-	{
-		name: 'PLACEHOLDER C.',
+		name: 'Janine Aylmore',
 		date: '2026-07',
 		rating: 5,
-		text: 'Third placeholder review.'
+		text: "Jake was extremely punctual and really friendly. He quoted a really good price for taking down a 30 foot fir tree. It was a boiling hot day about 31 degrees and he worked tirelessly, not stopping. What a nice fella, he cleaned up and got rid of everything to such a high standard you wouldn't even know he'd been here. Id highly recommend his work ."
+	},
+	{
+		name: 'Charlie Sheppard',
+		date: '2026-07',
+		rating: 5,
+		text: "Jake was thorough with his work and took pride in what he was trying to achieve, communicated great throughout. Will use again when needed."
+	},
+	{
+		name: 'John Hare',
+		date: '2026-05',
+		rating: 5,
+		text: "Did a great job taking out a large tree from the garden and clearing up afterwards. Would thoroughly recommend , nothing was too much trouble"
+	},
+	{
+		name: 'Alexina Berwick',
+		date: '2025-11',
+		rating: 5,
+		text: "Jake was brilliant! His communication was excellent throughout and he left the garden clear and tidy after removing a large tree. Highly recommended."
 	}
 ];
